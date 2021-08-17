@@ -1,0 +1,21 @@
+name: STAT5014_Fall2021_website
+output_dir: ../docs
+navbar:
+  title: STAT5014_Fall2021_website
+  left:
+  - text: Home
+    href: index.html
+  - text: About
+    href: about.html
+  - text: License
+    href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/rsettlage/STAT5014_Fall2021
+output:
+  workflowr::wflow_html:
+    toc: yes
+    toc_float: yes
+    theme: flatly
+    highlight: textmate

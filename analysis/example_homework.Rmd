@@ -1,0 +1,45 @@
+---
+title: "example_homework"
+author: "rsettlage"
+date: "2021-08-16"
+output: 
+  workflowr::wflow_html:
+    toc: true  
+editor_options:
+  chunk_output_type: console
+---
+
+In this class, we are going to gain experience using Git and good habits in Good Programming Practices, Reproducible Research and Markdown.  Each homework should produce neatly formatted and well written documents 'knit' to PDF and submitted to GitHub.  As an example of what I am looking for:
+
+## Libraries used section
+
+You should set all defaults and load all your libraries at the start of your code.  This helps someone trying to reproduce your analysis understand what packages need to be installed and available to run the analysis.  However, as a report, they do not necessarily need to be visible.  For instance:
+
+```{r load_libraries, include=TRUE, echo=TRUE}
+library(beeswarm)
+knitr::opts_chunk$set(collapse = TRUE)
+
+```
+
+
+After loading libraries, you should create (sub)sections for each problem with a brief statement of the problem, description of the data and a solution to the problem.
+
+## Problem 1: Is there a visible correlation of car cylinder count with gas mileage in the mtcars dataset?
+
+The mtcars data set consists of `r nrow(mtcars)` observations and associated qualities of various vehicles.  
+
+```{r summary_data, include=TRUE, eval=TRUE, echo=TRUE}
+knitr::kable(summary(mtcars),caption="data summary of mtcars")
+```
+
+If we use boxplots of the data with numbers of cylinders as our x-variable and mpg as the y-variable, we can see both the trend and indications of overlap between the data across cylinder count as in Figure 1.
+
+```{r fig1, fig.cap="\\label{fig:fig1}Mileage by cylinder"}
+
+boxplot(mpg~cyl, mtcars, pch=20, col=0, main="MPG by cylinder count, transmission")
+beeswarm(mpg~cyl, data = mtcars, pwcol=mtcars$am+2, pch=20, add=TRUE)
+legend("topright",c("auto","manual"),col=c(2,3),pch=20)
+```
+
+
+Make sure and weave figures and text to give a narrative to explain the thought process in the answering of the problem.  For instance, in Figure 1, we see a general decrease of the various MPG output for increasing cylinder counts suggesting some sort of relationship.
