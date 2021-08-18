@@ -326,7 +326,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -335,7 +335,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -347,7 +347,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2021-08-18
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -363,28 +363,28 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2targetblank4de91c8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2" target="_blank">4de91c8</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeccd1a185bb3492505abe1ff6dda538d1e823b9b6targetblankccd1a18a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/ccd1a185bb3492505abe1ff6dda538d1e823b9b6" target="_blank">ccd1a18</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2targetblank4de91c8a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeccd1a185bb3492505abe1ff6dda538d1e823b9b6targetblankccd1a18a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2" target="_blank">4de91c8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/ccd1a185bb3492505abe1ff6dda538d1e823b9b6" target="_blank">ccd1a18</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -392,13 +392,6 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Untracked files:
     Untracked:  analysis/Lecture_1_Introductions_Reproducible_Research_R.Rmd
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   analysis/index.Rmd
-
-Staged changes:
-    Deleted:    analysis/example_homework.Rmd
 
 </code></pre>
 <p>
@@ -437,6 +430,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/rsettlage/STAT5104_Fall2021/blob/ccd1a185bb3492505abe1ff6dda538d1e823b9b6/analysis/index.Rmd" target="_blank">ccd1a18</a>
+</td>
+<td>
+rsettlag
+</td>
+<td>
+2021-08-18
+</td>
+<td>
+wflow_publish(republish = TRUE, all = TRUE, update = TRUE)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/ccd1a185bb3492505abe1ff6dda538d1e823b9b6/docs/index.html" target="_blank">ccd1a18</a>
+</td>
+<td>
+rsettlag
+</td>
+<td>
+2021-08-18
+</td>
+<td>
+wflow_publish(republish = TRUE, all = TRUE, update = TRUE)
+</td>
+</tr>
 <tr>
 <td>
 html
