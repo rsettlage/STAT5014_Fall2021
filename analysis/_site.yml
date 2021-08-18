@@ -5,10 +5,14 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
+  - text: Syllabus
+    href: syllabus.html
+  - text: Schedule
+    href: schedule.html
+  - text: "Submitting Homework"
+    href: submittinghomework.html
+  - text: "Git Config"
+    href: gitconf.html
   right:
   - icon: fa-github
     text: Source code
