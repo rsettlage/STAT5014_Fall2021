@@ -1,6 +1,6 @@
 ---
-title: "Git Conf"
-author: "Bob Settlage"
+title: "Stat 5014 Fall 2020 Schedule"
+author: "Robert Settlage"
 date: "2021-08-18"
 output: workflowr::wflow_html
 editor_options:
@@ -8,65 +8,42 @@ editor_options:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
-Note, this is a working document describing how we will use git in this class.  Every students local computing platform is different and we will see exceptions.  Please do this early and let me know if you have issues and see deviations that should go on this writeup.  Basically, we need to have:
+This is the tentative schedule for the 2021 Fall semester.
+  
+9:05-9:55 a.m.  Wednesday, Seitz 207
+--------------  ---------------------------------------
+CRN:            90391
+Office:         Torgersen 3050
+Email:          rsettlag@vt.edu
+Office hours:   By appointment: Zoom or in person
+Course Website: https://rsettlage.github.io/STAT5104_Fall2021/
+--------------  ---------------------------------------
 
-1. Git and github configured
-2. Git configured locally (Rstudio.cloud or personal laptop if using a local install of Rstudio) to allow pushing to your personal repo
-3. Me <rsettlag> invited as collaborator.
+Suggested schedule, you can speed ahead.
+*Denotes homework due by date (you can turn in early)
 
-
-# Step 1: get Git (only if setting up on personal computer)
-Download git from <https://git-scm.com>  
-
-# Step 2: sign up for a Github account
-<https://github.com>  
-
-# Step 3: configure your ssh keys (only do this on your local computer if using one)
-
-In Rstudio:  
-1. Go to Terminal (lower left).  
-2. type: mkdir -p ~/.ssh/  
-3. type: cd ~/.ssh  
-4. type: ls  
-5. if you see a file called id_rsa.pub, go to step 8  
-6. Type `ssh-keygen` in the terminal window.  
-7. Ideally you will use a short passphrase different from your pid password, but can simply hit enter for most (or all prompts).  
-8. Once done, type `cat ~/.ssh/id_rsa.pub` and copy the entire output.  
-9. You now need to add this to your GitHub profile. In Github, click on the pulldown (top right) to view your profile and choose settings then SSH and GPG keys.  
-10. Click on New SSH key, paste your RSA public key there and save.  
-
-
-# Step 4: configure your local Git
-
-To do this, type the following in your Rstudio Terminal:  
-
-```{r eval=F, echo=T}
-    git config --global user.email "you@example.com"  
-    git config --global user.name "Your GitHub USER Name" 
-```
-
-# Step 5: create a new repo for your coursework
-
-Create a new repo named `STAT_5014_2020_<pid>` via the GitHub web interface.  Where `<pid>` is your VT pid by hitting the New button.  Don't add a readme at this time but do add me as a collaborator under settings (please use rsettlage, not my pid).
-
-# Step 6: iniialize the new repo to your local computer 
-
-In the Rstudio terminal window, change directories to where you want your coursework to live, for instance `cd ~/Documents/`.  Now copy and paste the directions from GitHub to create a new repository from the command line.  For me, this looks like:  
-
-```{r eval=F, echo=T}
-echo "# STAT_5014_Fall_2020" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin git@github.com:rsettlage/STAT_5014_Fall_2020.git
-git push -u origin master
-```
-
-If this set of commands is successful you are all setup and have made your first commit.  If you refresh the Github page, you should see your README.
-
-If you want to read more about this:  
-
-<https://services.github.com/on-demand/downloads/github-git-cheat-sheet/>
-
+|Lecture | Date      | Topic
+|--------|:---------:|------------------------------------------------------------------ 
+|        |           | **MODULE 1 -- R Bootcamp for Reproducible Research**  
+|1       | 25-Aug    | Introductions, R, Rstudio, Rmarkdown, LaTeX, Git and Reproducible Research
+|        |  1-Sep*   | No class
+|2	     |  8-Sep    | Data structures, plotting basics, Reproducible Research and (some) Git
+|3	     | 15-Sep*   | Base graphics, multi panel plots
+|4	     | 22-Sep    | ggplot2
+|        |           | **MODULE 2 -- Munging and wrangling**
+|5	     | 29-Sep*   | Loading, munging, summarizing data using tidyverse 
+|6	     |  6-Oct    | R functions, logic, good programming practices
+|7	     | 13-Oct*   | R Vector/matrix manipulations and math, speed considerations
+|8	     | 20-Oct    | R's Apply family of functions
+|9	     | 27-Oct*   | Parallel computing in R, parXapply, foreach and dopar
+|        |           | **MODULE 3 -- Working with others in R**  
+|10	     |  3-Nov    | Interactive Visualizations and Dashboards  
+|11	     | 10-Nov*   | GUIs for working with collaborators  
+|        |           | **MODULE 4 -- Deep Learning and some Python**  
+|12	     | 17-Nov    | Deep Learning using Keras in R  
+|13	     | 24-Nov    | No class -- Thanksgiving  
+|- 	     |  1-Dec*   | Python and Jupyter Notebooks  
+|14	     |  8-Dec*   | More Python (Final projects due)  
+|-       | ------    | Final -- none  
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Stat 5014 Fall 2020 Syllabus"
+title: "Stat 5014 Fall 2021 Syllabus"
 author: "Robert Settlage"
 date: 2021-08-18
 output: workflowr::wflow_html
@@ -10,15 +10,15 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 
 ---
 
-Syllabus for STAT 5014, Fall 2020.
+Syllabus for STAT 5014, Fall 2021.
   
-9:00-10:00 a.m.  Wednesday, Zoom Office Hours 
+9:05-9:55 a.m.  Wednesday, SEITZ 207 
 --------------  ---------------------------------------
-CRN:            90035
-Office:         Zoom
+CRN:            90391
+Office:         Torgersen 3050
 Email:          rsettlag@vt.edu
-Office hours:   W 9-10, Zoom and by appointment
-Course Website: https://github.com/rsettlage/STAT_5014_Fall_2020
+Office hours:   By appointment: Zoom or in person
+Course Website: https://rsettlage.github.io/STAT5104_Fall2021/
 --------------  ---------------------------------------
 
 ### Text book 
@@ -26,12 +26,9 @@ There is no required text book for this course. Although, if you were to read ju
 
 ### Required software (all free, install in order if you want a local install)
 
-In this class, we will use a Rstudio.  For all my demos etc, I will use Rstudio via Advanced Research Computing (ARC) at VT.  This is a free resource within the computing limits we will need for this course.
+For the majority of this class, we will use R and Rstudio.  For all my demos etc, I will use Rstudio via Advanced Research Computing (ARC) at VT.  This is an awesome research resource at VT. Within the computing limits we will need for this course, there are no associated fees.  Additionally, we will use the Primers on Rstudio.cloud.  This will require an account, but is available as a free resource.
 
-If you choose to use ARC, you need:  
-1) an account at arc.vt.edu -- requests -- account   
-2) you can access the clusters at https://ood.arc.vt.edu   
-3) choose the Rstudio app on Dragonstooth (allocation=stat5014-fall21, partition=interactive_q) 
+If you choose to use ARC, let me know and I will configure your account.
 
 
 Things you will need:
@@ -42,7 +39,7 @@ Git:            https://git-scm.com/
 Github:         https://github.com (account) 
 LaTeX:          https://miktex.org/
 R:              https://cran.r-project.org/  
-Rstudio:        https://rstudio.cloud (http://rstudio.com/)  
+Rstudio:        https://rstudio.com (and Rstudio.cloud)  
 -------         --------------------------------
 
 Note, on some platforms, LaTeX seems to be a royal PITA usually due to a previous installation.  If you have troubles, try installing the R package *tinytex*.  In this class, you are required to knit directly to pdf.  To test this, do "File -> New File -> R Markdown", choose the PDF toggle, click "ok", then simply "Knit to pdf".  If this works, you are good to go.
