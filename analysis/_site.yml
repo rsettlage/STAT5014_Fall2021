@@ -9,9 +9,12 @@ navbar:
     href: syllabus.html
   - text: Schedule
     href: schedule.html
-  - menu:
-    - text: "Submitting Homework"
-      href: submittinghomework.html
+  - text: Homework
+    menu:
+      - text: "Submitting Homework"
+        href: submittinghomework.html
+      - text: "Sample Homework"
+        href: SampleHomework.html
   - text: "Git Config"
     href: gitconf.html
   right:
