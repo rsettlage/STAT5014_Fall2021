@@ -9,14 +9,22 @@ navbar:
     href: syllabus.html
   - text: Schedule
     href: schedule.html
+  - text: Lectures
+    menu:
+      - text: "Lecture 1"
+        href: Lecture_1_Introductions_Reproducible_Research_R.html
   - text: Homework
+    menu:
+      - text: "Homework 1"
+        href: hw1.html
+  - text: Setup
     menu:
       - text: "Submitting Homework"
         href: submittinghomework.html
       - text: "Sample Homework"
         href: SampleHomework.html
-  - text: "Git Config"
-    href: gitconf.html
+      - text: "Git Config"
+        href: gitconf.html
   right:
   - icon: fa-github
     text: Source code

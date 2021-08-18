@@ -261,7 +261,31 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Lectures
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Lecture_1_Introductions_Reproducible_Research_R.html">Lecture 1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     Homework
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="hw1.html">Homework 1</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Setup
      
     <span class="caret"></span>
   </a>
@@ -272,10 +296,10 @@ $(document).ready(function () {
     <li>
       <a href="SampleHomework.html">Sample Homework</a>
     </li>
+    <li>
+      <a href="gitconf.html">Git Config</a>
+    </li>
   </ul>
-</li>
-<li>
-  <a href="gitconf.html">Git Config</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -302,7 +326,7 @@ $(document).ready(function () {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -311,7 +335,7 @@ $(document).ready(function () {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -323,7 +347,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2021-08-18
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -339,34 +363,43 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treefeeee7a9ba3b57754450efc09f582de7a816a072targetblankfeeee7aa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/feeee7a9ba3b57754450efc09f582de7a816a072" target="_blank">feeee7a</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2targetblank4de91c8a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2" target="_blank">4de91c8</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treefeeee7a9ba3b57754450efc09f582de7a816a072targetblankfeeee7aa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2targetblank4de91c8a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/feeee7a9ba3b57754450efc09f582de7a816a072" target="_blank">feeee7a</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2" target="_blank">4de91c8</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
-working directory clean
+Untracked files:
+    Untracked:  analysis/Lecture_1_Introductions_Reproducible_Research_R.Rmd
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
+    Modified:   analysis/index.Rmd
+
+Staged changes:
+    Deleted:    analysis/example_homework.Rmd
+
 </code></pre>
 <p>
 Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
@@ -404,6 +437,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2/docs/index.html" target="_blank">4de91c8</a>
+</td>
+<td>
+rsettlag
+</td>
+<td>
+2021-08-18
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -666,8 +716,7 @@ redo start
 </div>
 </div>
 </div>
-<p>Welcome to the STAT 5014 website for Fall 2021.</p>
-<p>On this site, you will find all the material we will go over in class, all assignments, and instructions for submitting homeworks.</p>
+<p>Welcome to the STAT 5014 website for Fall 2021. This is a 1 credit P/F class designed to get students up to speed with R and at least aware of other languages. At 1 credit, we do not have time to cover many advanced topics. I will introduce topics and I will provide lots of reading material for those interested in learning more. On this site, you will find all the material we will go over in class, all assignments, and instructions for submitting homeworks.</p>
 <ins>
 What this class is:
 </ins>
@@ -676,7 +725,7 @@ What this class is:
 What this class is not:
 </ins>
 <p>a fundamentals of computing course.</p>
-<p>We do not dive deep into the inerts of R and how to squeeze performance out of it. We do, however, talk about ways to do things more intentionally that may in indeed result in speed improvements. More importantly, we discuss ways to organize yourself that are both Reproducible and adher to Good Programming Practices. We also rely on Git to submit homeworks. More on that in class. While doing all of this, I hope you take away short cuts, tips and tricks to make your work more professional and you more effective as a data scientist.</p>
+<p>We do not dive deep into the innards of R to squeeze every last bit of performance out of it. We do, however, talk about ways to do things more intentionally that may in indeed result in speed improvements. More importantly, we discuss ways to organize yourself that are both Reproducible and adher to Good Programming Practices. We also rely on Git to submit homeworks. More on that in class. While doing all of this, I hope you take away short cuts, tips and tricks to make your work more professional and you more effective as a data scientist.</p>
 <div id="topics" class="section level4">
 <h4>Topics</h4>
 <p>The course will include, but is not restricted to, the following programming topics:</p>
@@ -699,6 +748,33 @@ What this class is not:
 <li>Monte Carlo procedures</li>
 <li>Power</li>
 </ul>
+</div>
+<div id="course-material" class="section level4">
+<h4>Course material</h4>
+<p>Generally, there will be 3 parts:</p>
+<ol style="list-style-type: decimal">
+<li>Lecture slides – html style markdown<br />
+</li>
+<li>Example code – html style markdown</li>
+<li>Homework – knitted pdf and the corresponding Rmd</li>
+</ol>
+<p>I am including both pdf and html markdown to provide examples for those that are interested. I am wanting <em>ALL</em> homework to be written and knitted <code>directly</code> to pdf. As you write papers using Overleaf or some other LaTeX editor, this is the syntax you will find most helpful.</p>
+</div>
+<div id="swirl" class="section level4">
+<h4>Swirl</h4>
+<p>We will use Rsutio.cloud primers as “labs” for those students coming from pencil/paper programs that have little to no computer programming experience.</p>
+</div>
+<div id="github" class="section level4">
+<h4>GitHub</h4>
+<p>All of our assignments will be submitted via GitHub.</p>
+</div>
+<div id="reproducible-research" class="section level4">
+<h4>Reproducible Research</h4>
+<p>We are endevouring to be reproducible in our practices, as such, we will discuss and then adhere to some basic tenants of Reproducible Research see <a href="http://r4ds.had.co.nz" class="uri">http://r4ds.had.co.nz</a></p>
+</div>
+<div id="good-programming-practices" class="section level4">
+<h4>Good Programming Practices</h4>
+<p>Reading others poorly written code is hard, tedious and maddening. We will discuss and then adhere to basics of Good Programming Practices.</p>
 </div>
 
 
