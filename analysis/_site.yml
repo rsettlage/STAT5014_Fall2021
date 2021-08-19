@@ -1,7 +1,7 @@
 name: "STAT5014 Fall 2021 website"
 output_dir: ../docs
 navbar:
-  title: STAT5014_Fall2021_website
+  title: "STAT5014 Fall2021 website"
   left:
   - text: Home
     href: index.html
