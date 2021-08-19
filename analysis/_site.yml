@@ -11,8 +11,8 @@ navbar:
     href: schedule.html
   - text: Lectures
     menu:
-      - text: "Lecture 1"
-        href: Lecture_1_Introductions_Reproducible_Research_R.html
+      - text: "Week 1"
+        href: Week_1_Introductions_Reproducible_Research_R.html
   - text: Homework
     menu:
       - text: "Homework 1"
