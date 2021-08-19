@@ -11,9 +11,8 @@
 
 <meta name="author" content="Robert Settlage" />
 
-<meta name="date" content="2021-08-18" />
 
-<title>Submitting homework</title>
+<title>Week 1 - Introductions, Reproducible Research, (a little) R, and (a little) Git</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -345,7 +344,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="Week_1_Introductions_Reproducible_Research_R.html">Week 1</a>
+      <a href="Lecture_1_Introductions_Reproducible_Research_R.html">Lecture 1</a>
     </li>
   </ul>
 </li>
@@ -397,16 +396,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Submitting homework</h1>
+<h1 class="title toc-ignore">Week 1 - Introductions, Reproducible Research, (a little) R, and (a little) Git</h1>
+<h3 class="subtitle">August 18, 2021</h3>
 <h4 class="author">Robert Settlage</h4>
-<h4 class="date">2021-08-18</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -415,7 +414,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -427,7 +426,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-08-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -443,12 +442,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -532,13 +531,11 @@ Note that you need to be careful to ensure that all relevant files for the analy
 <pre><code>
 Ignored files:
     Ignored:    .Rproj.user/
+    Ignored:    analysis/figure/
 
 Untracked files:
     Untracked:  analysis/Week_1_Introductions_Reproducible_Research_R.Rmd
     Untracked:  figure/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -551,254 +548,258 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/submittinghomework.Rmd</code>) and HTML (<code>docs/submittinghomework.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/9c34812b4da6652f9354a5a433f6fb0f567684ec/docs/submittinghomework.html" target="_blank">9c34812</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-19
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/c21b14ab5378c52b2c4fa5f53b560b33faa2b7b4/docs/submittinghomework.html" target="_blank">c21b14a</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/4de91c8f59b0db9d56c503c0dd2572f2bc9bf4d2/docs/submittinghomework.html" target="_blank">4de91c8</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/1a0df33769b681edde037ee5f765d31f90bb22e0/docs/submittinghomework.html" target="_blank">1a0df33</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/15a80bff2cd38b849c3613d5f8e33f615a45ae0d/docs/submittinghomework.html" target="_blank">15a80bf</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/fc1624bcb555abdaa998e8d9451d13672ecda45d/docs/submittinghomework.html" target="_blank">fc1624b</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/fc330d81b1f9ae0c7267b392a03c84b9ab2ce0f0/docs/submittinghomework.html" target="_blank">fc330d8</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/a9f4e7015d7d38b5fbe9555b20f2de0f3ea334f3/docs/submittinghomework.html" target="_blank">a9f4e70</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/9d5cac83a9bb3607802bfe8720a9c2cd901c8374/docs/submittinghomework.html" target="_blank">9d5cac8</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rsettlage/STAT5104_Fall2021/blob/cfd3f877196dc6edd61cb41449a5cba8ac3dd233/analysis/submittinghomework.Rmd" target="_blank">cfd3f87</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-testing menu
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/cfd3f877196dc6edd61cb41449a5cba8ac3dd233/docs/submittinghomework.html" target="_blank">cfd3f87</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-08-18
-</td>
-<td>
-testing menu
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<p>Homework submissions will be accomplished through GitHub. At this point, I am assuming you have worked through the Git Configuration document and successfully added the README file via the command line.</p>
-<p>Submitting homework will involve adding your homework to the tracked files, committing changes, and finally pushing your changes to your remote repo.</p>
-<p>After you have completed your assignment and saved your final knitted document, in the terminal, do the following:</p>
-<div id="make-sure-your-local-copy-is-synced-with-your-remote-copy" class="section level3">
-<h3>Make sure your local copy is synced with your remote copy</h3>
-<p><code>git pull</code></p>
+<div id="todays-agenda" class="section level2">
+<h2>Today’s Agenda</h2>
+<ul>
+<li>Introduce the course</li>
+<li>Introduce the concepts of Reproducible Research</li>
+<li>Introduce Git<br />
+</li>
+<li>Introduce R as the (main) platform for the course</li>
+<li>Homework 1</li>
+</ul>
 </div>
-<div id="add-your-homework-files-to-the-list-of-tracked-files" class="section level3">
-<h3>Add your homework files to the list of tracked files</h3>
-<p><code>git add &lt;your homework file&gt;</code></p>
+<div id="course-learning-objectives" class="section level2">
+<h2>Course Learning Objectives</h2>
+<ul>
+<li>R programming</li>
+<li>Reproducible research concepts</li>
+<li>Good programming practices<br />
+</li>
+<li>Data cleaning and munging</li>
+<li>Git fundamentals</li>
+<li>Markdown</li>
+<li>Python basics</li>
+<li>SAS basics</li>
+</ul>
 </div>
-<div id="commit-changes-you-care-about" class="section level3">
-<h3>Commit changes you care about</h3>
-<p><code>git commit -m "final version of homework XXX"</code></p>
+<div id="tentative-course-lecture-schedule" class="section level2">
+<h2>Tentative Course Lecture Schedule</h2>
+<p>Due dates are solid, however, feel free to race ahead.<br />
+<a href="https://rsettlage.github.io/STAT5104_Fall2021/schedule.html" class="uri">https://rsettlage.github.io/STAT5104_Fall2021/schedule.html</a></p>
 </div>
-<div id="push-your-homework-to-your-remote-repo" class="section level3">
-<h3>Push your homework to your remote repo</h3>
-<p><code>git push</code></p>
-<p>So, the basic workflow is:</p>
-<pre class="r"><code>git pull
-&lt;do work&gt;
-git pull
-git add ./*pdf
-git add ./*Rmd
-git commit -m &quot;my first draft&quot;
-git push</code></pre>
-<p>As you work on your homework, you can and should add/commit/push often to save your work! Again, if you want to learn more, check out the docs and the cheatsheet:</p>
-<p><a href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet/" class="uri">https://services.github.com/on-demand/downloads/github-git-cheat-sheet/</a></p>
+<div id="passing-the-course" class="section level2">
+<h2>Passing the course</h2>
+<p>Q. How do you pass the course??<br />
+A. Do the homework AND participate.</p>
+<p>There will be ca. 5 homeworks, you need to pass 4. There will also be a group project which must receive a passing mark. Each homework will be given 10 points, 7 is passing. Point breakdown will be:</p>
+<ul>
+<li>2 pts for submitting<br />
+</li>
+<li>2 pts for clean, well written document<br />
+</li>
+<li>2 pts for complete description of analysis process<br />
+</li>
+<li>4 pts for completing the assigned tasks.</li>
+</ul>
+</div>
+<div id="requirements-for-class-environment" class="section level2">
+<h2>Requirements for class environment</h2>
+<p>From last year:</p>
+<p>Well, in a normal year, this would go something like this: * During lecture: + Do not play on internet during lecture. * Coding with me: + Please code along to inform yourself of questions. * In-class exercise: + Do-it-yourself and ask questions</p>
+<p>This year, I hope you can at least find a quiet place for an hour or two each week to devote to this.</p>
+</div>
+<div id="class-motivation" class="section level2">
+<h2>Class motivation</h2>
+<ol style="list-style-type: decimal">
+<li><p>Regression and ANOVA</p></li>
+<li><p>UGLY code SUCKS</p></li>
+<li><p>You have worked 6 months to analyze a data set. You give your collaborator the perfect analysis and the results are very exciting. They go away very happy and you don’t hear from them for 1 year. Suddenly, a flurry of emails ensues, they have new data to add to the previous pipeline, they need alterations to your perfect figure, they have lots of how did you questions, they ask you to write a methods section, etc etc. You publish your perfect results. Someone else analyzes the data and comes to <em>different</em> conclusions. Are you sure you didn’t have a bug in your code? How good are your notes???</p></li>
+</ol>
+</div>
+<div id="reproducible-research---concepts" class="section level2">
+<h2>Reproducible Research - Concepts</h2>
+<p>Guide to this topic here: <a href="http://ropensci.github.io/reproducibility-guide/" class="uri">http://ropensci.github.io/reproducibility-guide/</a></p>
+<p>In general, we should <strong>weave</strong> code and text into a complete reference of our work. The document should:</p>
+<ul>
+<li>download or otherwise load/generate data</li>
+<li>reproduce steps to munge data</li>
+<li>recreate analysis steps</li>
+<li>create figures and tables</li>
+<li>explain any and all steps along the way</li>
+<li>end with conclusions drawn</li>
+<li>optionally add suggestions for future experiments</li>
+</ul>
+<p>While the above works well as a record of our analysis steps, we are still missing a method to save, archive our work, and do more interesting things like collaborate and use version control.</p>
+</div>
+<div id="version-control" class="section level2">
+<h2>Version Control</h2>
+<p>What is version control - a system for storing data and tracking changes. There are lots of different flavors:</p>
+<ul>
+<li>Git, SVG, Mercural, Perforce, Bazaar, etc etc</li>
+</ul>
+<p>In this class, we will use GitHub and make everything public, i.e. free.</p>
+<p>One question you are probably asking: “I am just using R for my own assignments, on my own computer, by myself, why should I care about version control?” Two stack overflow threads should help answer this:</p>
+<ul>
+<li>Why should I use version control?<br />
+<a href="http://stackoverflow.com/questions/1408450/why-should-i-use-version-control" class="uri">http://stackoverflow.com/questions/1408450/why-should-i-use-version-control</a></li>
+<li>R and version control for the solo data analyst<br />
+<a href="http://stackoverflow.com/questions/2712421/r-and-version-control-for-the-solo-data-analyst" class="uri">http://stackoverflow.com/questions/2712421/r-and-version-control-for-the-solo-data-analyst</a></li>
+</ul>
+</div>
+<div id="version-control-and-git" class="section level2">
+<h2>Version Control and Git</h2>
+<p>Git is essentially a database of snapshots of the project directory tree. You decide when and what to take snapshots of and if you using GitHub (or similar) when to push a copy to a remote repository.</p>
+<p>The basic workflow is:</p>
+<ol style="list-style-type: decimal">
+<li>git <strong>pull</strong><br />
+</li>
+<li><strong>do work</strong><br />
+</li>
+<li>git <strong>pull</strong> to make sure you have latest files</li>
+<li>git <strong>add</strong> <em>&lt;your changed file&gt;</em> tells git what change you care about<br />
+</li>
+<li>git <strong>commit</strong> -m “some INFORMATIVE message about the changes”<br />
+</li>
+<li>git <strong>push</strong> to the repository (local or remote)<br />
+</li>
+<li>repeat</li>
+</ol>
+<p>More instructions in the homework.</p>
+</div>
+<div id="git-file-states" class="section level2">
+<h2>Git file states</h2>
+<ul>
+<li>Untracked - files that have not been added to the database</li>
+<li>Committed - data is safely stored in your local database<br />
+</li>
+<li>Modified - file is changed but not committed it to your database yet<br />
+</li>
+<li>Staged - a modified file in its current version will go in next commit snapshot</li>
+</ul>
+<div class="figure">
+<img src="figure/git_file_lifecycle.png" alt="" />
+<p class="caption">Git file lifecycle</p>
+</div>
+</div>
+<div id="git-workflow" class="section level2">
+<h2>Git workflow</h2>
+<p>Nice visual from Git-flow <a href="https://jeffkreeftmeijer.com/git-flow/" class="uri">https://jeffkreeftmeijer.com/git-flow/</a></p>
+<p><img src="figure/Git_flow.png" height="40%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="reproducible-research-analysis" class="section level2">
+<h2>Reproducible Research Analysis</h2>
+<p>From Hadley Wickham &amp; Garrett Grolemund’s R for Data Science <a href="http://r4ds.had.co.nz" class="uri">http://r4ds.had.co.nz</a><br />
+<img src="figure/data-science-pipeline.png" alt="R data science" /></p>
+</div>
+<div id="reproducible-research-pipeline" class="section level2">
+<h2>Reproducible Research Pipeline</h2>
+<p>Further illustrated by Peng and Eckel (2008)<br />
+<img src="figure/Peng_Eckel_2008.png" width="600px" style="display: block; margin: auto;" /></p>
+</div>
+<div id="r-and-rstudio" class="section level2">
+<h2>R and Rstudio</h2>
+<p>From <a href="http://r-project.org" class="uri">http://r-project.org</a><br />
+R is an integrated suite of software facilities for data manipulation, calculation and graphical display.</p>
+<p>Rstudio is a GUI for R. <a href="http://rstudio.com" class="uri">http://rstudio.com</a></p>
+<p>Reasons to use R:</p>
+<ul>
+<li>free<br />
+</li>
+<li>open source<br />
+</li>
+<li>large community of both users and developers<br />
+</li>
+<li>large number of extensions to facilitate common tasks (packages)<br />
+</li>
+<li>superb functionality for data processing</li>
+<li>very mature statistical and graphical capabilities</li>
+</ul>
+</div>
+<div id="r-packages" class="section level2">
+<h2>R packages</h2>
+<p>R packages are community written (and often tested) extensions to R to enhance the functionality of R.</p>
+<p>Examples:</p>
+<ol style="list-style-type: decimal">
+<li>MASS
+<ul>
+<li>mvrnorm<br />
+</li>
+<li>stepAIC<br />
+</li>
+</ul></li>
+<li>ggplot2
+<ul>
+<li>grammer of graphics<br />
+</li>
+</ul></li>
+<li>knitr
+<ul>
+<li>RMarkdown</li>
+</ul></li>
+</ol>
+</div>
+<div id="rmarkdown" class="section level2">
+<h2>Rmarkdown</h2>
+<p>RMarkdown: “Analyze. Share. Reproduce.”</p>
+<p>Seems like what we are looking for.</p>
+<p>A Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. <strong>John Gruber</strong></p>
+<p>Rstudio includes an “extended and slightly revised version” of Gruber’s original Markdown syntax. This includes codes for:</p>
+<ol style="list-style-type: decimal">
+<li>adding lists
+<ul>
+<li>numbered, bullets, etc<br />
+</li>
+</ul></li>
+<li>text formatting
+<ul>
+<li>bold, italics, highlight, etc<br />
+</li>
+</ul></li>
+<li>adding equations
+<ul>
+<li>full LaTeX styled equations<br />
+</li>
+<li>numbering, indenting, aligning, etc</li>
+</ul></li>
+</ol>
+</div>
+<div id="latex" class="section level2">
+<h2>LaTeX</h2>
+<p><a href="http://latex-project.org" class="uri">http://latex-project.org</a><br />
+LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation. LaTeX is the de facto standard for the communication and publication of scientific documents. LaTeX is available as free software.</p>
+<p>Which includes many many math symbols:<br />
+<a href="http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html" class="uri">http://web.ift.uib.no/Teori/KURS/WRK/TeX/symALL.html</a></p>
+<p>And has a cool online tool:<br />
+<a href="http://detexify.kirelabs.org/classify.html" class="uri">http://detexify.kirelabs.org/classify.html</a></p>
+</div>
+<div id="reproducible-research-coding" class="section level2">
+<h2>Reproducible Research | Coding</h2>
+<p>Combining LaTeX and Knitr, we have a system to weave text and code into a highly customizable and formatted analysis report.</p>
+<p><a href="https://www.sharelatex.com/learn/Knitr" class="uri">https://www.sharelatex.com/learn/Knitr</a></p>
+</div>
+<div id="quick-tour-of-rstudio-and-r-from-rstudio.cloud" class="section level2">
+<h2>Quick tour of Rstudio and R from Rstudio.cloud</h2>
+<ol style="list-style-type: decimal">
+<li>panels
+<ul>
+<li>interactive, code, files, help</li>
+</ul></li>
+<li>packages
+<ul>
+<li>CRAN, installing, loading</li>
+</ul></li>
+<li>RMarkdown</li>
+<li>General R
+<ul>
+<li>basic math, assignment ooperator<br />
+</li>
+</ul></li>
+<li>Basic plots</li>
+</ol>
+<p><strong>Closing</strong></p>
+<ul>
+<li>In-class exercise<br />
+</li>
+<li>Homework 1</li>
+</ul>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -822,13 +823,13 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7        whisker_0.4       knitr_1.33        magrittr_2.0.1   
- [5] workflowr_1.6.2   R6_2.5.0          rlang_0.4.11      fansi_0.5.0      
+ [1] Rcpp_1.0.7        knitr_1.33        magrittr_2.0.1    workflowr_1.6.2  
+ [5] R6_2.5.0          rlang_0.4.11      fansi_0.5.0       highr_0.9        
  [9] stringr_1.4.0     tools_4.0.3       xfun_0.24         utf8_1.2.2       
 [13] git2r_0.28.0      htmltools_0.5.1.1 ellipsis_0.3.2    rprojroot_2.0.2  
 [17] yaml_2.2.1        digest_0.6.27     tibble_3.1.3      lifecycle_1.0.0  
-[21] crayon_1.4.1      later_1.2.0       vctrs_0.3.8       fs_1.5.0         
-[25] promises_1.2.0.1  glue_1.4.2        evaluate_0.14     rmarkdown_2.9    
+[21] crayon_1.4.1      later_1.2.0       vctrs_0.3.8       promises_1.2.0.1 
+[25] fs_1.5.0          glue_1.4.2        evaluate_0.14     rmarkdown_2.9    
 [29] stringi_1.7.3     compiler_4.0.3    pillar_1.6.2      httpuv_1.6.1     
 [33] pkgconfig_2.0.3  </code></pre>
 </div>
