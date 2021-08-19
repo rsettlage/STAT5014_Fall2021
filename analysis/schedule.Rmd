@@ -10,6 +10,8 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 
 This is the tentative schedule for the 2021 Fall semester.
   
+### Office and logistics
+
 9:05-9:55 a.m.  Wednesday, Seitz 207
 --------------  ---------------------------------------
 CRN:            90391
@@ -18,6 +20,8 @@ Email:          rsettlag@vt.edu
 Office hours:   By appointment: Zoom or in person
 Course Website: https://rsettlage.github.io/STAT5104_Fall2021/
 --------------  ---------------------------------------
+
+### Tentative schedule
 
 Suggested schedule, you can speed ahead.
 *Denotes homework due by date (you can turn in early)
