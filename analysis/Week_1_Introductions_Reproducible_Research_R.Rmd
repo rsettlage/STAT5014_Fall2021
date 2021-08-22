@@ -215,5 +215,5 @@ https://www.sharelatex.com/learn/Knitr
 
 **Closing**  
 
-  + In-class exercise  
-  + Homework 1
++ In-class exercise  
++ Homework 1
