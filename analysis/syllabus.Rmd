@@ -4,10 +4,9 @@ author: "Robert Settlage"
 date: 2021-08-18
 output: workflowr::wflow_html
 editor_options:
-  chunk_output_type: console
   
+  chunk_output_type: console
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
-
 ---
 
 Syllabus for STAT 5014, Fall 2021.

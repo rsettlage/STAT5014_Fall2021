@@ -20,7 +20,7 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 * R programming
 * Reproducible research concepts
 * Good programming practices  
-* Data cleaning and munging
+* Data cleaning, munging amd plotting  
 * Git fundamentals
 * Markdown
 * Python basics
@@ -45,17 +45,12 @@ There will be ca. 5 homeworks, you need to pass 4.  There will also be a group p
 
 ## Requirements for class environment
 
-From last year:
-
-Well, in a normal year, this would go something like this:
 * During lecture:
     + Do not play on internet during lecture.
 * Coding with me:
     + Please code along to inform yourself of questions.
 * In-class exercise:
     + Do-it-yourself and ask questions
-
-This year, I hope you can at least find a quiet place for an hour or two each week to devote to this.
 
 ## Class motivation
 
@@ -80,7 +75,7 @@ In general, we should **weave** code and text into a complete reference of our w
 - end with conclusions drawn
 - optionally add suggestions for future experiments  
 
-While the above works well as a record of our analysis steps, we are still missing a method to save, archive our work, and do more interesting things like collaborate and use version control.  
+While the above works well as a record of our analysis steps, we are still missing a method to save, update our work, and do more interesting things like collaborate.  
 
 ## Version Control  
 
@@ -208,14 +203,14 @@ Combining LaTeX and Knitr, we have a system to weave text and code into a highly
 
 https://www.sharelatex.com/learn/Knitr
 
-## Quick tour of Rstudio and R from Rstudio.cloud
+## Quick tour of Rstudio and R from ARC
 1. panels
     + interactive, code, files, help
 2. packages
     + CRAN, installing, loading
 3. RMarkdown
 4. General R  
-    + basic math, assignment ooperator    
+    + basic math, assignment operator    
 5. Basic plots
 
 **Closing**  
