@@ -368,6 +368,9 @@ This blog is a little commercial for my taste, BUT, he does a great job at EDA i
 <https://simplystatistics.org/2016/02/11/why-i-dont-use-ggplot2/>
 <http://varianceexplained.org/r/why-I-use-ggplot2/>
 
+*Julia*
+<http://docs.juliaplots.org/latest/>
+
 ## Multipanel plots
 
 I personally find these the most rewarding, but most time consuming plots.  I often end up doing them in base R because -I- find the layout easier for me to understand.   
