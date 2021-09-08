@@ -13,10 +13,12 @@ navbar:
     menu:
       - text: "Week 1"
         href: Week_1_Introductions_Reproducible_Research_R.html
+      - text: "Week 2"
+        href: Week_2_Data_structures_Reproducible_research_Git.html
   - text: Homework
     menu:
       - text: "Homework 1"
-        href: hw1.html
+        href: Week_1_homework_1.html
   - text: Setup
     menu:
       - text: "Submitting Homework"
