@@ -32,8 +32,8 @@ Suggested schedule, you can speed ahead.
 |1       | 25-Aug    | Introductions, R, Rstudio, Rmarkdown, LaTeX, Git and Reproducible Research
 |        |  1-Sep*   | No class
 |2	     |  8-Sep    | Data structures, plotting basics, Reproducible Research and (some) Git
-|3	     | 15-Sep*   | Base graphics, multi panel plots
-|4	     | 22-Sep    | ggplot2
+|3	     | 15-Sep*   | Base graphics, multi panel plots, and ggplot2  
+|4	     | 22-Sep    | Formula interface  
 |        |           | **MODULE 2 -- Munging and wrangling**
 |5	     | 29-Sep*   | Loading, munging, summarizing data using tidyverse 
 |6	     |  6-Oct    | R functions, logic, good programming practices
