@@ -16,7 +16,7 @@ navbar:
       - text: "Week 2"
         href: Week_2_Data_structures_Reproducible_research_Git.html
       - text: "Week 3"
-        href: Week_3_base_graphics_Multipanel_plots_Ggplot2.html
+        href: Week_3_base_graphics_Multipanel_plots_GGplot2.html
   - text: Homework
     menu:
       - text: "Homework 1"
