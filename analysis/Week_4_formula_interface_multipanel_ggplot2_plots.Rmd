@@ -8,6 +8,10 @@ editor_options:
 header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
 ---
 
+
+![Base R vs ggplot2 - take 2](./figure/normal_distribution.png)
+Source unknown
+
 ## Today's Agenda
 
 - Review: Multipanel plots and ggplot2  
