@@ -1,0 +1,86 @@
+---
+title: "Homework 3"
+subtitle: "Due: Wednesday, September 29, 2021"
+author: "Robert Settlage"
+date: "2021-09-08"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For each assignment, turn in by the due date/time.  Late assignments must be  arranged prior to submission.  In every case, assignments are to be typed neatly using proper English in Markdown.
+
+In the last few weeks, we have discussed data structures, plotting using base R graphics, ggplot2, creation of multipanel plots in both plotting paradigms, and use of the formula interface.  
+
+# Problem 1 -- Rstudio.cloud Primers
+
+If you need a bit more work with ggplot2, please see Rstudio.cloud's primers "Visualize Data".
+
+# Problem 2
+
+Now that we have the R environment setup and have a basic understanding of R, let's add Markdown (choose File, New File, R Markdown, pdf).  
+
+Let's go ahead and save the file as is.  Save the file to the directory containing the *README.md* file you created and committed to your git repo in Homework 3.  The filename should be: HW1_pid, i.e. for me it would be HW3_rsettlag.  Note, in future homework assignments I -may-, ok, *will likely* forget to increment the number, please infer the proper assignment number from the assignment...
+
+You will use this new R Markdown file for the remainder of this homework.
+
+
+# Problem 3
+
+Here we will create a linear model and associated basic diagnostic plots for some COVID data as in the previous homework  As a reminder, what we want is US data only and we will look at the 14 day moving average per 100k people.  We are going to limit the time period to June-July 2020.
+
+```{r libraryLoad, echo=TRUE, include=TRUE, eval=FALSE}
+install.packages('data.table')
+library(data.table)
+covid_raw <- fread("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv")
+us <- covid_raw[covid_raw$countriesAndTerritories == 'United_States_of_America',]
+us_filtered <- us[us$month %in% c(6:7),]
+us_filtered$index <- rev(1:dim(us_filtered)[1]) 
+fit<-lm(`Cumulative_number_for_14_days_of_COVID-19_cases_per_100000`~index, data=us_filtered)
+
+## augment the data as previous
+install.packages("broom")
+fit.diags <- broom::augment(fit)
+```
+
+As before, we are going to restrict this to four plots:  
+
+1. residuals vs fitted  
+2. normal Q-Q  
+3. scale-location  
+4. residuals vs leverage  
+
+Create them using ggplot2 functions.
+
+# Problem 4
+
+As before, we want to take the plots of the previous problem and create a single multipanel plot, this time, using ggarrange (ggpubr) or a similar canvas controlling package (gridExtra, patchwork).
+
+**This document containing solutions to Problems 2-4 should be typed in RMarkdown, using proper English, and knitted to create a pdf document.  Do NOT print, we will use git to submit this assignment as detailed below.**
+
+# Problem 5
+Please knit this document to PDF (name should be `HW3_pid`) and push to GitHub:
+
+In the R Terminal, type:  
+
+* git pull  
+* git add HW3\_pid.[pR]*  (NOTE: this should add two files)  
+* git commit -m "final HW3 submission"   
+* git push
+
+A more detailed description is on the course website under *Submitting Homework*.
+
+## Reminder on where to find Git help:  
+Read through the Git help Chapters 1 and 2.  
+<https://git-scm.com/book/en/v2>
+
+
+
+
+
+
