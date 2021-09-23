@@ -294,4 +294,5 @@ I will leave the other packages to you.
 
 ## Next up
 
-+ Homework 3
++ Homework 3  
++ Loading, munging, summarizing data using tidyverse

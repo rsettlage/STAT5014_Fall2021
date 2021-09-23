@@ -26,7 +26,7 @@ navbar:
       - text: "Homework 2"
         href: Week_2_homework_2.html
       - text: "Homework 3"
-        href: Week_3_homework_3.html
+        href: Week_4_homework_3.html
   - text: Setup
     menu:
       - text: "Submitting Homework"

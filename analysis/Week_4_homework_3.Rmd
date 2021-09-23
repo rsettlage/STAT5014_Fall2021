@@ -11,6 +11,7 @@ header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{ma
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggformula)
 ```
 
 For each assignment, turn in by the due date/time.  Late assignments must be  arranged prior to submission.  In every case, assignments are to be typed neatly using proper English in Markdown.
