@@ -13,7 +13,7 @@
 
 <meta name="date" content="2021-09-27" />
 
-<title>Lecture 3 - Data wrangling, munging and creating tidy datasets</title>
+<title>Lecture 5 - Data wrangling, munging and creating tidy datasets</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -415,7 +415,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Lecture 3 - Data wrangling, munging and creating tidy datasets</h1>
+<h1 class="title toc-ignore">Lecture 5 - Data wrangling, munging and creating tidy datasets</h1>
 <h4 class="author">Robert Settlage</h4>
 <h4 class="date">2021-09-27</h4>
 
@@ -424,7 +424,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -433,7 +433,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -442,10 +442,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-28
+<strong>Last updated:</strong> 2021-09-29
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -461,12 +461,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -533,16 +533,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeb78ce0876ca9c79cd65fbaa98c2d1395b19dfa78targetblankb78ce08a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/b78ce0876ca9c79cd65fbaa98c2d1395b19dfa78" target="_blank">b78ce08</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree6405d424ef2a96478f07040241bbfb74be758724targetblank6405d42a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/6405d424ef2a96478f07040241bbfb74be758724" target="_blank">6405d42</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeb78ce0876ca9c79cd65fbaa98c2d1395b19dfa78targetblankb78ce08a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree6405d424ef2a96478f07040241bbfb74be758724targetblank6405d42a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/b78ce0876ca9c79cd65fbaa98c2d1395b19dfa78" target="_blank">b78ce08</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/6405d424ef2a96478f07040241bbfb74be758724" target="_blank">6405d42</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -555,6 +555,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  sensory_raw.RDS
+
+Unstaged changes:
+    Modified:   analysis/Week_5_wrangling_munging_tidying.Rmd
 
 </code></pre>
 <p>
@@ -593,6 +596,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/6405d424ef2a96478f07040241bbfb74be758724/docs/Week_5_wrangling_munging_tidying.html" target="_blank">6405d42</a>
+</td>
+<td>
+rsettlag
+</td>
+<td>
+2021-09-28
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -946,7 +966,7 @@ attached base packages:
 other attached packages:
  [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
  [5] readr_2.0.0     tidyr_1.1.3     tibble_3.1.3    ggplot2_3.3.5  
- [9] tidyverse_1.3.1 beeswarm_0.4.0  knitr_1.33      workflowr_1.6.2
+ [9] tidyverse_1.3.1 beeswarm_0.4.0  knitr_1.33     
 
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.7        lubridate_1.7.10  assertthat_0.2.1  rprojroot_2.0.2  
@@ -956,14 +976,14 @@ loaded via a namespace (and not attached):
 [17] rstudioapi_0.13   whisker_0.4       rmarkdown_2.9     munsell_0.5.0    
 [21] broom_0.7.9       compiler_4.0.3    httpuv_1.6.1      modelr_0.1.8     
 [25] xfun_0.24         pkgconfig_2.0.3   htmltools_0.5.1.1 tidyselect_1.1.1 
-[29] fansi_0.5.0       crayon_1.4.1      tzdb_0.1.2        dbplyr_2.1.1     
-[33] withr_2.4.2       later_1.2.0       grid_4.0.3        jsonlite_1.7.2   
-[37] gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1         git2r_0.28.0     
-[41] magrittr_2.0.1    scales_1.1.1      cli_3.0.1         stringi_1.7.3    
-[45] fs_1.5.0          promises_1.2.0.1  xml2_1.3.2        ellipsis_0.3.2   
-[49] generics_0.1.0    vctrs_0.3.8       tools_4.0.3       glue_1.4.2       
-[53] hms_1.1.0         yaml_2.2.1        colorspace_2.0-2  rvest_1.0.1      
-[57] haven_2.4.1      </code></pre>
+[29] workflowr_1.6.2   fansi_0.5.0       crayon_1.4.1      tzdb_0.1.2       
+[33] dbplyr_2.1.1      withr_2.4.2       later_1.2.0       grid_4.0.3       
+[37] jsonlite_1.7.2    gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1        
+[41] git2r_0.28.0      magrittr_2.0.1    scales_1.1.1      cli_3.0.1        
+[45] stringi_1.7.3     fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
+[49] ellipsis_0.3.2    generics_0.1.0    vctrs_0.3.8       tools_4.0.3      
+[53] glue_1.4.2        hms_1.1.0         yaml_2.2.1        colorspace_2.0-2 
+[57] rvest_1.0.1       haven_2.4.1      </code></pre>
 </div>
 </div>
 

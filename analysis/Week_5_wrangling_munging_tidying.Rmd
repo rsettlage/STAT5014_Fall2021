@@ -1,5 +1,5 @@
 ---
-title:  'Lecture 3 - Data wrangling, munging and creating tidy datasets'
+title:  'Lecture 5 - Data wrangling, munging and creating tidy datasets'
 author: "Robert Settlage"
 date: "2021-09-27"
 output: workflowr::wflow_html
