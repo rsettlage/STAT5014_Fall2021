@@ -11,11 +11,11 @@
 
 <meta name="author" content="Robert Settlage" />
 
-<meta name="date" content="2021-09-27" />
+<meta name="date" content="2021-10-04" />
 
-<title>Lecture 5 - Data wrangling, munging and creating tidy datasets</title>
+<title>Week 6 - R functions and logic, good programming practices</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -415,16 +415,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Lecture 5 - Data wrangling, munging and creating tidy datasets</h1>
+<h1 class="title toc-ignore">Week 6 - R functions and logic, good programming practices</h1>
 <h4 class="author">Robert Settlage</h4>
-<h4 class="date">2021-09-27</h4>
+<h4 class="date">2021-10-04</h4>
 
 </div>
 
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -433,7 +433,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -442,10 +442,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-29
+<strong>Last updated:</strong> 2021-10-05
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 5 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 2
 </p>
 <p>
 <strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -461,12 +461,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -509,12 +509,18 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongdetected"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>Cache:</strong> detected </a>
 </p>
 </div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div id="strongCachestrongdetected" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+The following chunks had caches available:
+<ul>
+<li>
+unnamed-chunk-3
+</li>
+</ul>
+<p>To ensure reproducibility of the results, delete the cache directory <code>Week_6_R_functions_logic_good_programming_practices_cache</code> and re-run the analysis. To have workflowr automatically delete the cache directory prior to building the file, set <code>delete_cache = TRUE</code> when running <code>wflow_build()</code> or <code>wflow_publish()</code>.</p>
 </div>
 </div>
 </div>
@@ -552,8 +558,10 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/Week_6_R_functions_logic_good_programming_practices_cache/
 
 Untracked files:
+    Untracked:  analysis/Week_6_R_functions_logic_good_programming_practices.Rmd
     Untracked:  sensory_raw.RDS
 
 </code></pre>
@@ -567,137 +575,9 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/Week_5_wrangling_munging_tidying.Rmd</code>) and HTML (<code>docs/Week_5_wrangling_munging_tidying.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/272daa29892f07d907e779ecbd1bfd5a29b7a87a/docs/Week_5_wrangling_munging_tidying.html" target="_blank">272daa2</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-29
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rsettlage/STAT5104_Fall2021/blob/70d755360e2fbac992b329493b8ad04f3a238954/analysis/Week_5_wrangling_munging_tidying.Rmd" target="_blank">70d7553</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-29
-</td>
-<td>
-wflow_publish(republish = TRUE, all = TRUE, update = TRUE)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/70d755360e2fbac992b329493b8ad04f3a238954/docs/Week_5_wrangling_munging_tidying.html" target="_blank">70d7553</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-29
-</td>
-<td>
-wflow_publish(republish = TRUE, all = TRUE, update = TRUE)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/6405d424ef2a96478f07040241bbfb74be758724/docs/Week_5_wrangling_munging_tidying.html" target="_blank">6405d42</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-28
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rsettlage/STAT5104_Fall2021/blob/b78ce0876ca9c79cd65fbaa98c2d1395b19dfa78/analysis/Week_5_wrangling_munging_tidying.Rmd" target="_blank">b78ce08</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-28
-</td>
-<td>
-week 5
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/b78ce0876ca9c79cd65fbaa98c2d1395b19dfa78/docs/Week_5_wrangling_munging_tidying.html" target="_blank">b78ce08</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-28
-</td>
-<td>
-week 5
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
@@ -705,273 +585,16 @@ week 5
 <div id="todays-agenda" class="section level2">
 <h2>Today’s Agenda</h2>
 <ul>
-<li>Review data importing, cleaning and munging data</li>
-<li>Creating tidy datasets</li>
-<li>Using the tidyverse</li>
-<li>In-class tidy’ing</li>
+<li>Review data munging and creating tidy datasets</li>
+<li>Introduce good programming practices<br />
+</li>
+<li>R functions<br />
+</li>
+<li>for next<br />
+</li>
+<li>if else</li>
+<li>while loop</li>
 </ul>
-</div>
-<div id="data-wrangling" class="section level2">
-<h2>Data wrangling</h2>
-<p>Data wrangling or munging is the process of going from raw to useful data. This can be 60-80% of the time spent on a project. <em>Data Wrangling Cheatsheet</em> Steps may include any or all of the following:</p>
-<table style="width:51%;">
-<colgroup>
-<col width="15%" />
-<col width="36%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Step</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Import</td>
-<td><ul>
-<li>read.table(html,json)</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>Clean</td>
-<td><ul>
-<li>filter and subset</li>
-<li>standardize</li>
-<li>renaming</li>
-<li>type conversions</li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>Reformat</td>
-<td><ul>
-<li>merging</li>
-<li>reshaping</li>
-<li>aggregating</li>
-</ul></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="data-importing-good-practices" class="section level2">
-<h2>Data importing – good practices</h2>
-<pre class="r"><code>    #google &quot;how to get data into R&quot;
-    url&lt;-&quot;http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/Sensory.dat&quot;
-    sensory_raw&lt;-read.table(url, header=F, skip=1, fill=T, stringsAsFactors = F)
-    # read.table is ok, I prefer fread (in data.table package)
-    saveRDS(sensory_raw,file=&quot;sensory_raw.RDS&quot;)
-    sensory_raw &lt;- readRDS(&quot;sensory_raw.RDS&quot;)</code></pre>
-<p>If you are getting data from the internet, it is a good idea to protect against:</p>
-<ol style="list-style-type: decimal">
-<li>data source being down<br />
-</li>
-<li>data source being changed<br />
-</li>
-<li>other unknown issues</li>
-</ol>
-<p>I generally pull the data down, then save the data to an .Rds file. My project includes:</p>
-<ol style="list-style-type: decimal">
-<li>commented code used to pull data down<br />
-</li>
-<li>commented code used to save data<br />
-</li>
-<li>code to read data into R from the saved file<br />
-</li>
-<li>AND often project image files as mid-stream checkpoints</li>
-</ol>
-</div>
-<div id="data-wrangling-summaries" class="section level2">
-<h2>Data wrangling – summaries</h2>
-<p>?str, ?summary, group_by and dplyr, should mention doBy package<br />
-Sometimes, a picture really is worth a 1000 words.</p>
-<pre class="r"><code>    library(beeswarm)
-    sex &lt;- (runif(1000)&gt;0.5)*1
-    drug_duration &lt;- sex*0.1 + rnorm(1000, 0, 0.1) + 5
-    drug_info &lt;- data.frame(cbind(drug_duration,sex))
-    drug_info$id &lt;- ifelse(drug_info$sex==0,&quot;M&quot;,&quot;F&quot;)</code></pre>
-</div>
-<div id="box-example" class="section level2">
-<h2>box example</h2>
-<p><img src="figure/Week_5_wrangling_munging_tidying.Rmd/boxexample2-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-boxexample2-1">
-Past versions of boxexample2-1.png
-</button>
-</p>
-<div id="fig-boxexample2-1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/rsettlage/STAT5104_Fall2021/blob/b78ce0876ca9c79cd65fbaa98c2d1395b19dfa78/docs/figure/Week_5_wrangling_munging_tidying.Rmd/boxexample2-1.png" target="_blank">b78ce08</a>
-</td>
-<td>
-rsettlag
-</td>
-<td>
-2021-09-28
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="questions" class="section level2">
-<h2>Questions</h2>
-<div id="summary-functions" class="section level3">
-<h3>summary functions</h3>
-<ol style="list-style-type: decimal">
-<li>what does the imported data look like? Missing values, odd structures?</li>
-<li>What summaries, text or plots, might you make on the girder data as imported assuming 9 different girders?</li>
-</ol>
-</div>
-<div id="dplyr" class="section level3">
-<h3>dplyr</h3>
-<ol style="list-style-type: decimal">
-<li>Using dplyr functions, can you summarize the data? Mean by method, mean by girder? Min? Max?</li>
-</ol>
-</div>
-</div>
-<div id="problem-1-data-import" class="section level2">
-<h2>Problem 1 – Data import</h2>
-<div id="part-a" class="section level3">
-<h3>Part a:</h3>
-<p>Import data from a girder strength experiment described in Wu and Hamada’s Experiment Design book. This data has shear strength data obtained by 10 different methods on 9 different girders.</p>
-<p>url &lt;- “<a href="https://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/fullgirder.dat" class="uri">https://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/fullgirder.dat</a>”</p>
-</div>
-<div id="part-b" class="section level3">
-<h3>Part b:</h3>
-<p>What if the girder names, eg “S1/1”, had a meaning such as “steel girder 1 from lot 1” and you wanted to include this in your model. Can you import the data with the name correctly parsed? HINT: ?fread.</p>
-</div>
-</div>
-<div id="data-wrangling---reformattingstandardizing" class="section level2">
-<h2>Data wrangling - reformatting/standardizing</h2>
-<p>Now that we have the data in R, we need to get it into a useable format. One idea for a set of standards for structuring a data set is to create a so called “tidy” data set.</p>
-<p><a href="http://vita.had.co.nz/papers/tidy-data.html" class="uri">http://vita.had.co.nz/papers/tidy-data.html</a></p>
-<p>Essentially, we need to reformat the data such that:</p>
-<ol style="list-style-type: decimal">
-<li>Each variable forms a column.<br />
-</li>
-<li>Each observation forms a row.<br />
-</li>
-<li>Each type of observational unit forms a table.</li>
-</ol>
-<p>Any other structure to the data is considered messy. Sound easy?</p>
-</div>
-<div id="data-wrangling---reformatting" class="section level2">
-<h2>Data wrangling - reformatting</h2>
-<p>OK, what is wrong with this?</p>
-<table>
-<caption>Messy Data</caption>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">treatmenta</th>
-<th align="right">treatmentb</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">John Smith</td>
-<td align="left">NA</td>
-<td align="right">2</td>
-</tr>
-<tr class="even">
-<td align="left">Jane Doe</td>
-<td align="left">16</td>
-<td align="right">11</td>
-</tr>
-<tr class="odd">
-<td align="left">Mary Johnson</td>
-<td align="left">3</td>
-<td align="right">1</td>
-</tr>
-</tbody>
-</table>
-<p>What we want is something more akin to a model:</p>
-<p><span class="math display">\[
-y_i = \beta_1 x_{i1} + \beta_2 x_{i2} ...
-\]</span></p>
-</div>
-<div id="data-wrangling---base-r" class="section level2">
-<h2>Data wrangling - base R</h2>
-<p>The point in data munging is efficiently transforming and cleaning data to bring it into a usable state. In the example above, we saw functions from <em>plyr</em> and <em>tidyr</em> (look up <em>tidyverse</em>) used for to create a data “pipeline”. You may find other solutions that suit you better.</p>
-<pre class="r"><code>    tidy_data1_df&lt;-cbind(messy_data1_df,names=rownames(messy_data1_df))
-    tidy_data1_df&lt;-rbind(tidy_data1_df,tidy_data1_df)
-    tidy_data1_df[4:6,1]&lt;-tidy_data1_df[4:6,2]
-    tidy_data1_df$treatmentb&lt;-rep(c(&quot;a&quot;,&quot;b&quot;),each=3)
-    colnames(tidy_data1_df)&lt;-c(&quot;value&quot;,&quot;treatment&quot;,&quot;names&quot;)
-    rownames(tidy_data1_df)&lt;-NULL
-    tidy_data1_df&lt;-tidy_data1_df[,c(3,2,1)]
-    tidy_data1_df$value&lt;-as.numeric(tidy_data1_df$value)</code></pre>
-</div>
-<div id="data-wrangling---tidy-example" class="section level2">
-<h2>Data wrangling - tidy example</h2>
-<pre class="r"><code>    suppressPackageStartupMessages(library(tidyverse))
-    tidy_data1_df&lt;-messy_data1_df %&gt;%
-                    tibble::rownames_to_column() %&gt;%
-                    gather(&quot;treatment&quot;,&quot;value&quot;,treatmenta:treatmentb) %&gt;%
-                    mutate(treatment=str_replace(treatment,&quot;treatment&quot;,&quot;&quot;)) %&gt;%
-                    mutate(value=as.numeric(value))</code></pre>
-<pre><code>Warning in mask$eval_all_mutate(quo): NAs introduced by coercion</code></pre>
-<pre class="r"><code>    knitr::kable(tidy_data1_df,format = &quot;markdown&quot;, caption=&quot;Tidy Data&quot;)</code></pre>
-<table>
-<caption>Tidy Data</caption>
-<thead>
-<tr class="header">
-<th align="left">rowname</th>
-<th align="left">treatment</th>
-<th align="right">value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">John Smith</td>
-<td align="left">a</td>
-<td align="right">NA</td>
-</tr>
-<tr class="even">
-<td align="left">Jane Doe</td>
-<td align="left">a</td>
-<td align="right">16</td>
-</tr>
-<tr class="odd">
-<td align="left">Mary Johnson</td>
-<td align="left">a</td>
-<td align="right">3</td>
-</tr>
-<tr class="even">
-<td align="left">John Smith</td>
-<td align="left">b</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="left">Jane Doe</td>
-<td align="left">b</td>
-<td align="right">11</td>
-</tr>
-<tr class="even">
-<td align="left">Mary Johnson</td>
-<td align="left">b</td>
-<td align="right">1</td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf</a></p>
 </div>
 <div id="data-wrangling---messy-data-symptoms" class="section level2">
 <h2>Data wrangling - messy data symptoms</h2>
@@ -983,12 +606,266 @@ y_i = \beta_1 x_{i1} + \beta_2 x_{i2} ...
 </li>
 <li>A single observational unit is stored in multiple tables.</li>
 </ul>
+<p>With a goal of eventually evaluating a model:<br />
+<span class="math display">\[
+y_i = \beta_1 x_{i1} + \beta_2 x_{i2} ...
+\]</span></p>
 </div>
-<div id="next-up" class="section level2">
-<h2>Next up</h2>
+<div id="good-programming-practices" class="section level2">
+<h2>Good Programming Practices</h2>
+<p>Most analysis will require some amount of programming (scripting). As we program, we should strive to create readable and reusable code. The art of creating good code is captured in the broad and opinionated topic of Good Programming Practices. You will devolop your own style, but it would be good to start with some guidance from some experts.</p>
+<p>Google’s R Style Guide <a href="https://google.github.io/styleguide/Rguide.xml" class="uri">https://google.github.io/styleguide/Rguide.xml</a><br />
+Hadley Wickam’s Style Guide: <a href="http://r-pkgs.had.co.nz/style.html" class="uri">http://r-pkgs.had.co.nz/style.html</a></p>
+</div>
+<div id="good-programming-practices-cont" class="section level2">
+<h2>Good Programming Practices cont</h2>
+<p>Remember: ultimate goal is Reproducible Research.<br />
+To enable this, we need well documented (annotated) <em><strong>readable</strong></em> code.</p>
+<ol style="list-style-type: decimal">
+<li>variable/object names
 <ul>
-<li>R functions, logic, good programming practices</li>
+<li>nouns describing what the object holds, e.g. originaData instead of d<br />
+</li>
+<li>DO NOT use existing variables or functions, e.g. T&lt;-1000</li>
+</ul></li>
+<li>function formation
+<ul>
+<li>function names should be verb associated with the function purpose<br />
+</li>
+<li>comment both function purpose and required arguments<br />
+</li>
+<li>arguments should have defaults (my personal preference)</li>
+<li>my preference is to explicitly return a value<br />
+</li>
+</ul></li>
+<li>commenting rules
+<ul>
+<li>comment your code!! ’nough said?<br />
+</li>
+</ul></li>
+<li>indent within logical blocks of code !!
+<ul>
+<li>indenting improves the readability of the code by orders of magnitude!</li>
+</ul></li>
+</ol>
+</div>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<p>A function is an <em><strong>object</strong></em> that takes some input objects (args) and produces some output objects. <em><strong>All</strong></em> work in R is done in functions. ‘[&lt;-’(animals,4,“duck”)</p>
+<pre class="r"><code>    dataA&lt;-1;dataB&lt;-2
+
+    BAD&lt;-function(x){
+    mean(c(x,dataA))
+    }
+    
+    computeMeanGOOD&lt;-function(x=3,y=5){
+        # quick function to compute the geometric mean of two numbers, x and y
+        # returns geometric mean
+        if (!is.numeric(x) || !is.numeric(y)) stop(&quot;both x and y must be numeric&quot;)
+        return((x+y)/2)
+    }
+    
+    BAD(x=dataB)
+    computeMeanGOOD(x=dataA,y=dataB)</code></pre>
+<p>GOOD functions include passing in ALL necessary data. If we do not do this, we can have MAJOR issues with variable scope that is often difficult to troubleshoot. Ideally our code also includes error checking.</p>
+</div>
+<div id="variable-scope" class="section level2">
+<h2>Variable scope</h2>
+<p>R uses Lexical scoping rules. What tha?</p>
+<p><a href="https://darrenjw.wordpress.com/2011/11/23/lexical-scope-and-function-closures-in-r/" class="uri">https://darrenjw.wordpress.com/2011/11/23/lexical-scope-and-function-closures-in-r/</a><br />
+Totally recommend subscribing to Darren’s blog AND reading all his past posts.</p>
+<p><a href="http://andrewgelman.com/2014/01/29/stupid-r-tricks-random-scope/" class="uri">http://andrewgelman.com/2014/01/29/stupid-r-tricks-random-scope/</a><br />
+Another good site. Also has a few great stats books.</p>
+<p>While we are at it, r-bloggers has many useful tidbits. <a href="https://www.r-bloggers.com" class="uri">https://www.r-bloggers.com</a></p>
+<pre class="r"><code>    z &lt;- 1; a &lt;- 1
+    m &lt;- function(){a &lt;- 2; return(c(a,z)) }
+    m(); a
+    
+    a &lt;- 1; b &lt;- 2
+    f&lt;-function(x){ a*x + b }
+    ## what about this one??
+    g&lt;-function(x){ a &lt;&lt;- 2; b &lt;- 1; print(objects()); f(x) }
+    g(2)</code></pre>
+</div>
+<div id="for-statement" class="section level2">
+<h2>FOR statement</h2>
+<p>Often, we want to loop through a set number of items or do a task a predetermined length of time. Can add additional controls via <strong>break</strong> and <strong>next</strong>. To get help on functions type ?“for”</p>
+<pre class="r"><code>    Iter &lt;- 5
+    cumIndex &lt;- 0
+    for(i in 1:Iter){
+        #if(i %% 2==1) next
+        cumIndex &lt;- cumIndex + 1
+        #if(cumIndex&gt;3) break
+    }
+    print(cumIndex)</code></pre>
+<pre><code>[1] 5</code></pre>
+<div class="alert alert-warning">
+<p>
+<strong>Warning:</strong> The above code chunk cached its results, but it won’t be re-run if previous chunks it depends on are updated. If you need to use caching, it is highly recommended to also set <code>knitr::opts_chunk$set(autodep = TRUE)</code> at the top of the file (in a chunk that is not cached). Alternatively, you can customize the option <code>dependson</code> for each individual chunk that is cached. Using either <code>autodep</code> or <code>dependson</code> will remove this warning. See the <a href="https://yihui.name/knitr/options/#cache"
+>knitr cache options</a> for more details.
+</p>
+</div>
+</div>
+<div id="if-else-statement" class="section level2">
+<h2>If ELSE statement</h2>
+<p>A powerful addition to any program is the ability to change the course of the program as conditions change. In R, one such flow change statement is the if else statement.</p>
+<pre class="r"><code>    Iter &lt;- 20
+    cumSumODDS &lt;- 0
+    cumSumEVENS &lt;- 0
+    for(i in 1:Iter){
+        if(i %% 2 == 1){
+            print(paste0(&quot;i=&quot;,i,&quot; is odd&quot;))
+            cumSumODDS = cumSumODDS + i
+        }else{
+            print(paste0(&quot;i=&quot;,i,&quot; is even&quot;))
+            cumSumEVENS = cumSumEVENS + i
+        }
+    }</code></pre>
+<pre><code>[1] &quot;i=1 is odd&quot;
+[1] &quot;i=2 is even&quot;
+[1] &quot;i=3 is odd&quot;
+[1] &quot;i=4 is even&quot;
+[1] &quot;i=5 is odd&quot;
+[1] &quot;i=6 is even&quot;
+[1] &quot;i=7 is odd&quot;
+[1] &quot;i=8 is even&quot;
+[1] &quot;i=9 is odd&quot;
+[1] &quot;i=10 is even&quot;
+[1] &quot;i=11 is odd&quot;
+[1] &quot;i=12 is even&quot;
+[1] &quot;i=13 is odd&quot;
+[1] &quot;i=14 is even&quot;
+[1] &quot;i=15 is odd&quot;
+[1] &quot;i=16 is even&quot;
+[1] &quot;i=17 is odd&quot;
+[1] &quot;i=18 is even&quot;
+[1] &quot;i=19 is odd&quot;
+[1] &quot;i=20 is even&quot;</code></pre>
+<pre class="r"><code>    cumSumEVENS</code></pre>
+<pre><code>[1] 110</code></pre>
+<pre class="r"><code>    cumSumODDS</code></pre>
+<pre><code>[1] 100</code></pre>
+</div>
+<div id="while-loop" class="section level2">
+<h2>While loop</h2>
+<p>A while loop can be thought of as a combination of a for loop and an if statement. Do until condition is true. In any iterative function, it is a good idea to a) have a progress indicator and b) have a fail safe.</p>
+<pre class="r"><code>    dummyVar &lt;- 0
+    iter &lt;- 0
+    while(dummyVar&lt;100){
+        dummyVar = dummyVar + 1
+        ## PROGRESS
+        if(dummyVar %% 5 == 0){
+            print(paste0(&quot;loop step=&quot;,dummyVar))
+        }
+        ## FAIL SAFE
+        if(iter&gt;50){
+            break
+        }else{
+            iter=iter+1
+        }
+    }</code></pre>
+<pre><code>[1] &quot;loop step=5&quot;
+[1] &quot;loop step=10&quot;
+[1] &quot;loop step=15&quot;
+[1] &quot;loop step=20&quot;
+[1] &quot;loop step=25&quot;
+[1] &quot;loop step=30&quot;
+[1] &quot;loop step=35&quot;
+[1] &quot;loop step=40&quot;
+[1] &quot;loop step=45&quot;
+[1] &quot;loop step=50&quot;</code></pre>
+</div>
+<div id="timing" class="section level2">
+<h2>Timing</h2>
+<p>As you start to make functions, it is a good idea to think about how long things take.</p>
+<p>Really good blog on this here: <a href="https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/" class="uri">https://www.r-bloggers.com/5-ways-to-measure-running-time-of-r-code/</a></p>
+<p>Consider the following code and timings:</p>
+<pre class="r"><code>    library(&quot;microbenchmark&quot;)
+    ##takes a vector and a value, determines if the elements of the vector are to the right/left
+    left_right1&lt;-function(x = c(0.1,0.9), bar = 0.5){
+        temp&lt;-NULL
+        for(i in seq_along(x)){
+            temp[i] &lt;- (x[i]&gt;bar)*1
+        }
+        return(temp)
+    }
+    left_right2 &lt;- function(x = c(0.1,0.9), bar = 0.5){
+        ifelse(x&gt;bar,1,0)
+    }
+    x1&lt;-rnorm(n = 50000,mean=0.5)
+    times&lt;-microbenchmark(result1&lt;-left_right1(x=x1),result2&lt;-left_right2(x=x1),times = 100, unit = &quot;ms&quot;,control=list(warmup=0))</code></pre>
+<pre><code>Warning in microbenchmark(result1 &lt;- left_right1(x = x1), result2 &lt;-
+left_right2(x = x1), : Could not measure overhead. Your clock might lack
+precision.</code></pre>
+</div>
+<div id="timings-plot" class="section level2">
+<h2>Timings plot</h2>
+<pre><code>Coordinate system already present. Adding new coordinate system, which will replace the existing one.</code></pre>
+<p><img src="figure/Week_6_R_functions_logic_good_programming_practices.Rmd/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="bit-more-on-functions-in-r" class="section level2">
+<h2>Bit more on functions in R</h2>
+<p><a href="https://csgillespie.github.io/efficientR/programming.html" class="uri">https://csgillespie.github.io/efficientR/programming.html</a></p>
+<p>Everything in R is essentially a function call. Generally, this means at some point the function call will make a call to the underlying C/Fortran code.</p>
+<p>“A golden rule in R programming is to access the underlying C/Fortran routines as quickly as possible; the fewer functions calls required to achieve this, the better. For example, suppose <code>x</code> is a standard vector of length <code>n</code>. Then:”</p>
+</div>
+<div id="example" class="section level2">
+<h2>Example</h2>
+<pre class="r"><code>x = x + 1</code></pre>
+<p><em>has a single call to the <code>+</code></em> function, whereas:</p>
+<pre class="r"><code>for(i in seq_len(n)) 
+  x[i] = x[i] + 1</code></pre>
+<p>has:</p>
+<ul>
+<li><em>n</em> function calls to <em>+</em>;<br />
+</li>
+<li><em>n</em> function calls to the <em>[</em> function;<br />
+</li>
+<li><em>n</em> function calls to the <em>[&lt;-</em> function;<br />
+</li>
+<li>one call to the <em>for</em> function;<br />
+</li>
+<li>one call the the <em>seq_along</em> function.</li>
 </ul>
+<p>We will check this out in a bit.</p>
+</div>
+<div id="memory-allocation-method-1" class="section level2">
+<h2>Memory allocation – Method 1</h2>
+<p>Memory management is the Achilles’ heel of many programming languages. If we are careful in our programming, we can alleviate many of the issues.</p>
+<p>Consider the following examples given in Gillespie’s R Book:</p>
+<p>Method 1: create empty vector, grow vector to final size</p>
+<pre class="r"><code>method1 = function(n) {
+  vec = NULL # Or vec = c()
+  for(i in seq_len(n))
+    vec = c(vec, i)
+  vec
+}</code></pre>
+</div>
+<div id="memory-allocation-method-2" class="section level2">
+<h2>Memory allocation – Method 2</h2>
+<p>Method 2: create vector of final length and change values via subscripting</p>
+<pre class="r"><code>method2 = function(n) {
+  vec = numeric(n)
+  for(i in seq_len(n))
+    vec[i] = i
+  vec
+}</code></pre>
+</div>
+<div id="memory-allocation-method-3" class="section level2">
+<h2>Memory allocation – Method 3</h2>
+<p>Method 3: create final object directly</p>
+<pre class="r"><code>method3 = function(n) seq_len(n)</code></pre>
+<p>Thoughts on the 3 methods??</p>
+</div>
+<div id="memory-and-functions" class="section level2">
+<h2>Memory and functions</h2>
+<p>This topic is really intertwined with lexical scoping. The basic idea is that R manages objects by creating environments. Each environment is essentially a bag of names pointing to thier associated memory space. Creating a function, creates a new environment. The environment lives as long as the function is active.</p>
+<p><a href="http://adv-r.had.co.nz/Functions.html#lexical-scoping" class="uri">http://adv-r.had.co.nz/Functions.html#lexical-scoping</a><br />
+<a href="http://adv-r.had.co.nz/Environments.html" class="uri">http://adv-r.had.co.nz/Environments.html</a></p>
+<p>As you program in R more, you will want to pay special attention to memory management and function calls.</p>
+<p>– memory used<br />
+– speed issues</p>
+<p>look at memory size of objects look at memory use of R look at memory use of R during a function call with large object</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -1012,26 +889,22 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
- [5] readr_2.0.0     tidyr_1.1.3     tibble_3.1.3    ggplot2_3.3.5  
- [9] tidyverse_1.3.1 beeswarm_0.4.0  knitr_1.33     
+[1] microbenchmark_1.4-7 data.table_1.14.2    tidyr_1.1.4         
+[4] dplyr_1.0.7         
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7        lubridate_1.7.10  assertthat_0.2.1  rprojroot_2.0.2  
- [5] digest_0.6.27     utf8_1.2.2        R6_2.5.0          cellranger_1.1.0 
- [9] backports_1.2.1   reprex_2.0.0      evaluate_0.14     httr_1.4.2       
-[13] highr_0.9         pillar_1.6.2      rlang_0.4.11      readxl_1.3.1     
-[17] rstudioapi_0.13   whisker_0.4       rmarkdown_2.9     munsell_0.5.0    
-[21] broom_0.7.9       compiler_4.0.3    httpuv_1.6.1      modelr_0.1.8     
-[25] xfun_0.24         pkgconfig_2.0.3   htmltools_0.5.1.1 tidyselect_1.1.1 
-[29] workflowr_1.6.2   fansi_0.5.0       crayon_1.4.1      tzdb_0.1.2       
-[33] dbplyr_2.1.1      withr_2.4.2       later_1.2.0       grid_4.0.3       
-[37] jsonlite_1.7.2    gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1        
-[41] git2r_0.28.0      magrittr_2.0.1    scales_1.1.1      cli_3.0.1        
-[45] stringi_1.7.3     fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
-[49] ellipsis_0.3.2    generics_0.1.0    vctrs_0.3.8       tools_4.0.3      
-[53] glue_1.4.2        hms_1.1.0         yaml_2.2.1        colorspace_2.0-2 
-[57] rvest_1.0.1       haven_2.4.1      </code></pre>
+ [1] Rcpp_1.0.7       highr_0.9        pillar_1.6.3     compiler_4.0.3  
+ [5] later_1.3.0      jquerylib_0.1.4  git2r_0.28.0     workflowr_1.6.2 
+ [9] tools_4.0.3      digest_0.6.28    gtable_0.3.0     evaluate_0.14   
+[13] lifecycle_1.0.1  tibble_3.1.5     pkgconfig_2.0.3  rlang_0.4.11    
+[17] DBI_1.1.1        yaml_2.2.1       xfun_0.26        fastmap_1.1.0   
+[21] stringr_1.4.0    knitr_1.36       generics_0.1.0   fs_1.5.0        
+[25] vctrs_0.3.8      grid_4.0.3       rprojroot_2.0.2  tidyselect_1.1.1
+[29] glue_1.4.2       R6_2.5.1         fansi_0.5.0      rmarkdown_2.11  
+[33] farver_2.1.0     ggplot2_3.3.5    purrr_0.3.4      magrittr_2.0.1  
+[37] scales_1.1.1     promises_1.2.0.1 ellipsis_0.3.2   htmltools_0.5.2 
+[41] assertthat_0.2.1 colorspace_2.0-2 httpuv_1.6.3     utf8_1.2.2      
+[45] stringi_1.7.4    munsell_0.5.0    crayon_1.4.1    </code></pre>
 </div>
 </div>
 
