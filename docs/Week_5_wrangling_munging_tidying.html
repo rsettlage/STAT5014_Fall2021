@@ -15,7 +15,7 @@
 
 <title>Lecture 5 - Data wrangling, munging and creating tidy datasets</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -442,7 +442,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-09-29
+<strong>Last updated:</strong> 2021-10-05
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -533,16 +533,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree272daa29892f07d907e779ecbd1bfd5a29b7a87atargetblank272daa2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/272daa29892f07d907e779ecbd1bfd5a29b7a87a" target="_blank">272daa2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeb47b37321cdce31aab7915268895e2f56ccb4bb4targetblankb47b373a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/b47b37321cdce31aab7915268895e2f56ccb4bb4" target="_blank">b47b373</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree272daa29892f07d907e779ecbd1bfd5a29b7a87atargetblank272daa2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeb47b37321cdce31aab7915268895e2f56ccb4bb4targetblankb47b373a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/272daa29892f07d907e779ecbd1bfd5a29b7a87a" target="_blank">272daa2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/b47b37321cdce31aab7915268895e2f56ccb4bb4" target="_blank">b47b373</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -552,6 +552,7 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    analysis/Week_6_R_functions_logic_good_programming_practices_cache/
 
 Untracked files:
     Untracked:  sensory_raw.RDS
@@ -593,6 +594,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/b47b37321cdce31aab7915268895e2f56ccb4bb4/docs/Week_5_wrangling_munging_tidying.html" target="_blank">b47b373</a>
+</td>
+<td>
+rsettlag
+</td>
+<td>
+2021-10-05
+</td>
+<td>
+adding week 6
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -1013,25 +1031,25 @@ attached base packages:
 
 other attached packages:
  [1] forcats_0.5.1   stringr_1.4.0   dplyr_1.0.7     purrr_0.3.4    
- [5] readr_2.0.0     tidyr_1.1.3     tibble_3.1.3    ggplot2_3.3.5  
- [9] tidyverse_1.3.1 beeswarm_0.4.0  knitr_1.33     
+ [5] readr_2.0.2     tidyr_1.1.4     tibble_3.1.5    ggplot2_3.3.5  
+ [9] tidyverse_1.3.1 beeswarm_0.4.0  knitr_1.36      workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7        lubridate_1.7.10  assertthat_0.2.1  rprojroot_2.0.2  
- [5] digest_0.6.27     utf8_1.2.2        R6_2.5.0          cellranger_1.1.0 
- [9] backports_1.2.1   reprex_2.0.0      evaluate_0.14     httr_1.4.2       
-[13] highr_0.9         pillar_1.6.2      rlang_0.4.11      readxl_1.3.1     
-[17] rstudioapi_0.13   whisker_0.4       rmarkdown_2.9     munsell_0.5.0    
-[21] broom_0.7.9       compiler_4.0.3    httpuv_1.6.1      modelr_0.1.8     
-[25] xfun_0.24         pkgconfig_2.0.3   htmltools_0.5.1.1 tidyselect_1.1.1 
-[29] workflowr_1.6.2   fansi_0.5.0       crayon_1.4.1      tzdb_0.1.2       
-[33] dbplyr_2.1.1      withr_2.4.2       later_1.2.0       grid_4.0.3       
-[37] jsonlite_1.7.2    gtable_0.3.0      lifecycle_1.0.0   DBI_1.1.1        
-[41] git2r_0.28.0      magrittr_2.0.1    scales_1.1.1      cli_3.0.1        
-[45] stringi_1.7.3     fs_1.5.0          promises_1.2.0.1  xml2_1.3.2       
-[49] ellipsis_0.3.2    generics_0.1.0    vctrs_0.3.8       tools_4.0.3      
-[53] glue_1.4.2        hms_1.1.0         yaml_2.2.1        colorspace_2.0-2 
-[57] rvest_1.0.1       haven_2.4.1      </code></pre>
+ [1] Rcpp_1.0.7       lubridate_1.7.10 assertthat_0.2.1 rprojroot_2.0.2 
+ [5] digest_0.6.28    utf8_1.2.2       R6_2.5.1         cellranger_1.1.0
+ [9] backports_1.2.1  reprex_2.0.1     evaluate_0.14    httr_1.4.2      
+[13] highr_0.9        pillar_1.6.3     rlang_0.4.11     readxl_1.3.1    
+[17] rstudioapi_0.13  whisker_0.4      jquerylib_0.1.4  rmarkdown_2.11  
+[21] munsell_0.5.0    broom_0.7.9      compiler_4.0.3   httpuv_1.6.3    
+[25] modelr_0.1.8     xfun_0.26        pkgconfig_2.0.3  htmltools_0.5.2 
+[29] tidyselect_1.1.1 fansi_0.5.0      crayon_1.4.1     tzdb_0.1.2      
+[33] dbplyr_2.1.1     withr_2.4.2      later_1.3.0      grid_4.0.3      
+[37] jsonlite_1.7.2   gtable_0.3.0     lifecycle_1.0.1  DBI_1.1.1       
+[41] git2r_0.28.0     magrittr_2.0.1   scales_1.1.1     cli_3.0.1       
+[45] stringi_1.7.4    fs_1.5.0         promises_1.2.0.1 xml2_1.3.2      
+[49] ellipsis_0.3.2   generics_0.1.0   vctrs_0.3.8      tools_4.0.3     
+[53] glue_1.4.2       hms_1.1.1        fastmap_1.1.0    yaml_2.2.1      
+[57] colorspace_2.0-2 rvest_1.0.1      haven_2.4.3     </code></pre>
 </div>
 </div>
 
