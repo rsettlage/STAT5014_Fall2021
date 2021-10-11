@@ -1,0 +1,84 @@
+---
+title: "Homework 4"
+subtitle: "Due: Wednesday, October 20, 2021"
+author: "Robert Settlage"
+date: "2021-10-08"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggformula)
+```
+
+For each assignment, turn in by the due date/time.  Late assignments must be  arranged prior to submission.  In every case, assignments are to be typed neatly using proper English in Markdown.
+
+In the last few weeks, we have discussed data structures, plotting using base R graphics, ggplot2, creation of multipanel plots in both plotting paradigms, and use of the formula interface.  
+
+# Problem 1 -- Rstudio.cloud Primers
+
+If you need a bit more work with the tidyverse, check out Rstudio.cloud Primer titled "Tidy your data".
+
+# Problem 2
+
+Now that we have the R environment setup and have a basic understanding of R, let's add Markdown (choose File, New File, R Markdown, pdf).  
+
+Let's go ahead and save the file as is.  Save the file to the directory containing the *README.md* file you created and committed to your git repo.  The filename should be: HW4_pid, i.e. for me it would be HW4_rsettlag.  Note, in future homework assignments I -may-, ok, *will likely* forget to increment the number, please infer the proper assignment number from the assignment...
+
+You will use this new R Markdown file for the remainder of this homework.
+
+## Problem 3
+
+In these exercises, you will import, munge, clean and summarize datasets from Wu and Hamada's _Experiments: Planning, Design and Analysis_ book used in the graduate experiment design class.  For each dataset, please weave your code and text to describe both your process and observations.  Make sure you create a tidy dataset describing the variables, create a summary table of the data, note any issues with the data, and create a single summary table of the data (`kable(head(data),caption="XXX data ...")`) and a single plot of each dataset highlighting some feature of the data.  For full credit, you will use the dplyr and tidyr packages for munging and summarizing the data for at least one function of the tidying. Remember to label your plots including axis and any necessary legends.   
+
+The first two are warm-ups:  
+
+## Part A  
+Ten parts were selected randomly from a line and duplicate measurements of the part's wall thickness were taken by each of three operators of the measurement apparatus.  Click on the link and you will see the data in your browser.    
+<https://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/ThicknessGauge.dat>  
+
+## Part B 
+Brain weight (g) and body weight (kg) for 62 species.    
+<http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/BrainandBodyWeight.dat>  
+
+What do you do when the rows are not uniform in data content?  
+
+## Part C  
+Gold Medal performance for Olympic Men's Long Jump, year is coded as 1900=0.  Goodness, ragged arrays.  Check out fread in the data.table package.  
+<http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/LongJumpData.dat>  
+
+Using fread, you can specify more than one field separator and a skip value...
+
+## Part D  
+Triplicate measurements of tomato yield for two varieties of tomatos at three planting densities.  
+<http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/tomato.dat>  
+
+
+## Part E  
+Larvae counts at two ages given 5 different treatments in 8 blocks.  
+<https://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/LarvaeControl.dat>  
+
+
+
+# Problem 5
+Please knit this document to PDF (name should be `HW4_pid`) and push to GitHub:
+
+In the R Terminal, type:  
+
+* git pull  
+* git add HW4\_pid.[pR]*  (NOTE: this should add two files)  
+* git commit -m "final HW4 submission"   
+* git push
+
+A more detailed description is on the course website under *Submitting Homework*.
+
+
+
+
+
+
+
+
