@@ -18,13 +18,18 @@ navbar:
       - text: "Week 3"
         href: Week_3_Base_graphics_Mulitpanel_plots_GGplot2.html
       - text: "Week 4"
-        href:  Week_4_formula_interface_multipanel_ggplot2_plots.html
+        href: Week_4_formula_interface_multipanel_ggplot2_plots.html
       - text: "Week 5"
-        href:  Week_5_wrangling_munging_tidying.html
+        href: Week_5_wrangling_munging_tidying.html
       - text: "Week 6"
-        href:  Week_6_R_functions_logic_good_programming_practices.html
+        href: Week_6_R_functions_logic_good_programming_practices.html
       - text: "Week 7"
-        href:  Week_7_matrix_vector_math.html
+        href: Week_7_matrix_vector_math.html
+      - text: "Week 8"
+        href: Week_8_apply_family.html
+      - text: "Week 9"
+        href: Week_9_going_parallel.html
+
   - text: Homework
     menu:
       - text: "Homework 1"
@@ -35,6 +40,8 @@ navbar:
         href: Week_4_homework_3.html
       - text: "Homework 4"
         href: Week_6_homework_4.html
+      - text: "Homework 5"
+        href: Week_9_homework_5.html
   - text: Setup
     menu:
       - text: "Submitting Homework"

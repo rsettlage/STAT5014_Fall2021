@@ -1,0 +1,116 @@
+---
+title: "Homework 5"
+subtitle: "Due: Monday, Nov 15, 2021"
+author: "Robert Settlage"
+date: "2021-11-06"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For each assignment, turn in by the due date/time.  Late assignments must be arranged prior to submission.  In every case, assignments are to be typed neatly using proper English in Markdown.  
+
+The last couple of weeks, we spoke about the apply family of functions and convenience tools for parallelizing your code.  It turns out going parallel is tricky the first time as you get past platform specific oddities of your local computer, but I would highly recommend you spend a little time in one of the  following problems seeing if you can do it.  
+
+## Problem 1
+
+Create a new R Markdown file within your local GitHub repo folder (file-->new-->R Markdown-->save as).
+
+The filename should be: HW5_pid.rmd, i.e. for me it would be HW5_rsettlage.rmd .
+
+You will use this new R Markdown file to solve the following problems.
+
+  
+## Problem 2
+
+Bootstrapping
+
+Recall the sensory data from five operators:    
+<http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/Sensory.dat> 
+
+Sometimes, you really want more data to do the desired analysis, but going back to the "field" is often not an option. An often used method is bootstrapping.  Check out the second answer here for a really nice and detailed description of bootstrapping:
+<https://stats.stackexchange.com/questions/316483/manually-bootstrapping-linear-regression-in-r>.
+
+What we want to do is bootstrap the Sensory data to get non-parametric estimates of the parameters.  Assume that we can neglect item in the analysis such that we are really only interested in a linear model lm(y~operator).
+
+### Part a.  First, the question asked in the stackexchange was why is the supplied code not working.  This question was actually never answered.  What is the problem with the code?  If you want to duplicate the code to test it, use the quantreg package to get the data.
+
+### Part b. Bootstrap the analysis to get the parameter estimates using 100 bootstrapped samples.  Make sure to use system.time to get total time for the analysis.  You should probably make sure the samples are balanced across operators, ie each sample draws for each operator.
+
+### Part c (optional). Redo the last problem but run the bootstraps in parallel (`cl <- makeCluster(4)`), don't forget to `stopCluster(cl)`).  Why can you do this?  Make sure to use system.time to get total time for the analysis.  Note, the 4 in `makeCluster` should be less  than the total cores/threads available in your system.  You can do this on the Rstudio.cloud or ARC resources.
+
+Create a single table summarizing the results and timing from part a and b.  What are your thoughts?
+
+## Problem 3
+
+Newton's method gives an answer for a root.  To find multiple roots, you need to try different starting values.  There is no guarantee for what start will give a specific root, so you simply need to try multiple.  
+
+Given the following function, let's find the roots
+\begin{equation}
+f(x) = 3^x - sin(x) + cos(5*x) + x^2 - 1.5
+\end{equation}
+
+Shown in the figure below.
+
+```{r plot_fn, echo=F, eval=T, include=T}
+curve(3^x - sin(x) + cos(5*x) + x^2 - 1.5 ,from= -2, to=1.4,ylab = "f(x)", ylim=c(-2,5))
+```
+
+
+### Part a.  
+From the plot of the function, how many roots are there?  
+Create a function that takes as input a starting point for Newtons method and returns a root.  Use a tolerance of 1e-5.  Don't forget to set a max number of iterations.  What does your function return when it fails to converge?  
+
+### Part b.
+Create a vector (`length.out=1000`) as a "grid" covering all the roots and extending +/-1 to either end.  Using one of the apply functions, find the roots noting the time it takes to run the apply function.  Create a summary plot of the answer.  A scatter plot could be interesting.  
+
+### Part c (optional).
+Repeat the apply command using the equivelant parApply command.  Use a number workers appropriate for your system.  `cl <- makeCluster(8)`.
+
+Create a table summarizing the roots and timing from both parts a and b.  What are your thoughts?
+
+
+## Problem 4
+
+Gradient descent, like Newton's method, has "hyperparameters" that are determined outside the algorithm and there are no set rules for determing what settings to use.  For gradient descent, you need to set a start value, a step size and tolerance.  
+
+### Part a.
+Given a simple linear regression problem 2 above, create a function that accepts as input an initial guess for both $\beta$'s and returns optimized values.
+
+### Part b.
+
+What is your stopping rule?  What if you were to change the stopping rule to include our knowledge of the true value?  Is this a good way to run this algorithm?  What is a potential problem?  What is the best guess at an initial value?
+
+### Part c.
+
+Using a step size of $1e^{-7}$ and tolerance of $1e^{-9}$, try 1000 different combinations of $\beta_0$ and $\beta_1$ across the range of possible $\beta$'s +/-1 from true.  In my try at this, I found starting close to true took 1.1M iterations, so set a stopping rule for 5M and only keep a rolling 1000 iterations for both $\beta$'s.  Hint, you can create a grid and use an apply function.
+
+
+### Part d. 
+Create a scatter plot for each $\beta$ plotting start vs optimum.  Summarize the optimized results.  What are your thoughts on this algorithm?
+
+
+## Problem 5
+Please knit this document to PDF (name should be `HW5_pid`) and push to GitHub:
+
+In the R Terminal, type:  
+
+* git pull  
+* git add HW5\_pid.[pR]*  (NOTE: this should add two files)  
+* git commit -m "final HW5 submission"   
+* git push
+
+A more detailed description is on the course website under *Submitting Homework*.
+
+## Reminder on where to find Git help:  
+Read through the Git help Chapters 1 and 2.  
+<https://git-scm.com/book/en/v2>
+
+
+
+
