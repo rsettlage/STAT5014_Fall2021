@@ -38,11 +38,14 @@ Sometimes, you really want more data to do the desired analysis, but going back 
 
 What we want to do is bootstrap the Sensory data to get non-parametric estimates of the parameters.  Assume that we can neglect item in the analysis such that we are really only interested in a linear model lm(y~operator).
 
-### Part a.  First, the question asked in the stackexchange was why is the supplied code not working.  This question was actually never answered.  What is the problem with the code?  If you want to duplicate the code to test it, use the quantreg package to get the data.
+### Part a.  
+First, the question asked in the stackexchange was why is the supplied code not working.  This question was actually never answered.  What is the problem with the code?  If you want to duplicate the code to test it, use the quantreg package to get the data.
 
-### Part b. Bootstrap the analysis to get the parameter estimates using 100 bootstrapped samples.  Make sure to use system.time to get total time for the analysis.  You should probably make sure the samples are balanced across operators, ie each sample draws for each operator.
+### Part b. 
+Bootstrap the analysis to get the parameter estimates using 100 bootstrapped samples.  Make sure to use system.time to get total time for the analysis.  You should probably make sure the samples are balanced across operators, ie each sample draws for each operator.
 
-### Part c (optional). Redo the last problem but run the bootstraps in parallel (`cl <- makeCluster(4)`), don't forget to `stopCluster(cl)`).  Why can you do this?  Make sure to use system.time to get total time for the analysis.  Note, the 4 in `makeCluster` should be less  than the total cores/threads available in your system.  You can do this on the Rstudio.cloud or ARC resources.
+### Part c (optional). 
+Redo the last problem but run the bootstraps in parallel (`cl <- makeCluster(4)`), don't forget to `stopCluster(cl)`).  Why can you do this?  Make sure to use system.time to get total time for the analysis.  Note, the 4 in `makeCluster` should be less  than the total cores/threads available in your system.  You can do this on the Rstudio.cloud or ARC resources.
 
 Create a single table summarizing the results and timing from part a and b.  What are your thoughts?
 
@@ -88,7 +91,7 @@ What is your stopping rule?  What if you were to change the stopping rule to inc
 
 ### Part c.
 
-Using a step size of $1e^{-7}$ and tolerance of $1e^{-9}$, try 1000 different combinations of $\beta_0$ and $\beta_1$ across the range of possible $\beta$'s +/-1 from true.  In my try at this, I found starting close to true took 1.1M iterations, so set a stopping rule for 5M and only keep a rolling 1000 iterations for both $\beta$'s.  Hint, you can create a grid and use an apply function.
+Using a step size of $1e^{-7}$ and tolerance of $1e^{-9}$, try 1000 different combinations of $\beta_0$ and $\beta_1$ across the range of possible $\beta$'s +/-1 from true.  In my try at this, I found starting close to true took 1.1M iterations, so set a stopping rule for 5M.  Hint, you can create a grid and use an apply function.
 
 
 ### Part d. 

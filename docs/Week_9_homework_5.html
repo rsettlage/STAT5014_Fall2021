@@ -443,7 +443,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -452,7 +452,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -464,7 +464,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-11-06
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -480,12 +480,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -552,16 +552,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree5bc1dd2381ed6e42c3332700cbd59491ba1b4307targetblank5bc1dd2a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/5bc1dd2381ed6e42c3332700cbd59491ba1b4307" target="_blank">5bc1dd2</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeba5a308ca52ffe650471322b3d95063e1ca41a90targetblankba5a308a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/ba5a308ca52ffe650471322b3d95063e1ca41a90" target="_blank">ba5a308</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree5bc1dd2381ed6e42c3332700cbd59491ba1b4307targetblank5bc1dd2a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021treeba5a308ca52ffe650471322b3d95063e1ca41a90targetblankba5a308a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/5bc1dd2381ed6e42c3332700cbd59491ba1b4307" target="_blank">5bc1dd2</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/ba5a308ca52ffe650471322b3d95063e1ca41a90" target="_blank">ba5a308</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -575,6 +575,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  sensory_raw.RDS
+
+Unstaged changes:
+    Modified:   analysis/Week_9_homework_5.Rmd
 
 </code></pre>
 <p>
@@ -613,6 +616,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rsettlage/STAT5104_Fall2021/ba5a308ca52ffe650471322b3d95063e1ca41a90/docs/Week_9_homework_5.html" target="_blank">ba5a308</a>
+</td>
+<td>
+rsettlag
+</td>
+<td>
+2021-11-06
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -669,14 +689,17 @@ fixing up Week 9
 <a href="http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/Sensory.dat" class="uri">http://www2.isye.gatech.edu/~jeffwu/wuhamadabook/data/Sensory.dat</a></p>
 <p>Sometimes, you really want more data to do the desired analysis, but going back to the “field” is often not an option. An often used method is bootstrapping. Check out the second answer here for a really nice and detailed description of bootstrapping: <a href="https://stats.stackexchange.com/questions/316483/manually-bootstrapping-linear-regression-in-r" class="uri">https://stats.stackexchange.com/questions/316483/manually-bootstrapping-linear-regression-in-r</a>.</p>
 <p>What we want to do is bootstrap the Sensory data to get non-parametric estimates of the parameters. Assume that we can neglect item in the analysis such that we are really only interested in a linear model lm(y~operator).</p>
-<div id="part-a.-first-the-question-asked-in-the-stackexchange-was-why-is-the-supplied-code-not-working.-this-question-was-actually-never-answered.-what-is-the-problem-with-the-code-if-you-want-to-duplicate-the-code-to-test-it-use-the-quantreg-package-to-get-the-data." class="section level3">
-<h3>Part a. First, the question asked in the stackexchange was why is the supplied code not working. This question was actually never answered. What is the problem with the code? If you want to duplicate the code to test it, use the quantreg package to get the data.</h3>
+<div id="part-a." class="section level3">
+<h3>Part a.</h3>
+<p>First, the question asked in the stackexchange was why is the supplied code not working. This question was actually never answered. What is the problem with the code? If you want to duplicate the code to test it, use the quantreg package to get the data.</p>
 </div>
-<div id="part-b.-bootstrap-the-analysis-to-get-the-parameter-estimates-using-100-bootstrapped-samples.-make-sure-to-use-system.time-to-get-total-time-for-the-analysis.-you-should-probably-make-sure-the-samples-are-balanced-across-operators-ie-each-sample-draws-for-each-operator." class="section level3">
-<h3>Part b. Bootstrap the analysis to get the parameter estimates using 100 bootstrapped samples. Make sure to use system.time to get total time for the analysis. You should probably make sure the samples are balanced across operators, ie each sample draws for each operator.</h3>
+<div id="part-b." class="section level3">
+<h3>Part b.</h3>
+<p>Bootstrap the analysis to get the parameter estimates using 100 bootstrapped samples. Make sure to use system.time to get total time for the analysis. You should probably make sure the samples are balanced across operators, ie each sample draws for each operator.</p>
 </div>
-<div id="part-c-optional.-redo-the-last-problem-but-run-the-bootstraps-in-parallel-cl---makecluster4-dont-forget-to-stopclustercl.-why-can-you-do-this-make-sure-to-use-system.time-to-get-total-time-for-the-analysis.-note-the-4-in-makecluster-should-be-less-than-the-total-coresthreads-available-in-your-system.-you-can-do-this-on-the-rstudio.cloud-or-arc-resources." class="section level3">
-<h3>Part c (optional). Redo the last problem but run the bootstraps in parallel (<code>cl &lt;- makeCluster(4)</code>), don’t forget to <code>stopCluster(cl)</code>). Why can you do this? Make sure to use system.time to get total time for the analysis. Note, the 4 in <code>makeCluster</code> should be less than the total cores/threads available in your system. You can do this on the Rstudio.cloud or ARC resources.</h3>
+<div id="part-c-optional." class="section level3">
+<h3>Part c (optional).</h3>
+<p>Redo the last problem but run the bootstraps in parallel (<code>cl &lt;- makeCluster(4)</code>), don’t forget to <code>stopCluster(cl)</code>). Why can you do this? Make sure to use system.time to get total time for the analysis. Note, the 4 in <code>makeCluster</code> should be less than the total cores/threads available in your system. You can do this on the Rstudio.cloud or ARC resources.</p>
 <p>Create a single table summarizing the results and timing from part a and b. What are your thoughts?</p>
 </div>
 </div>
@@ -725,16 +748,16 @@ rsettlag
 </table>
 </div>
 </div>
-<div id="part-a." class="section level3">
+<div id="part-a.-1" class="section level3">
 <h3>Part a.</h3>
 <p>From the plot of the function, how many roots are there?<br />
 Create a function that takes as input a starting point for Newtons method and returns a root. Use a tolerance of 1e-5. Don’t forget to set a max number of iterations. What does your function return when it fails to converge?</p>
 </div>
-<div id="part-b." class="section level3">
+<div id="part-b.-1" class="section level3">
 <h3>Part b.</h3>
 <p>Create a vector (<code>length.out=1000</code>) as a “grid” covering all the roots and extending +/-1 to either end. Using one of the apply functions, find the roots noting the time it takes to run the apply function. Create a summary plot of the answer. A scatter plot could be interesting.</p>
 </div>
-<div id="part-c-optional." class="section level3">
+<div id="part-c-optional.-1" class="section level3">
 <h3>Part c (optional).</h3>
 <p>Repeat the apply command using the equivelant parApply command. Use a number workers appropriate for your system. <code>cl &lt;- makeCluster(8)</code>.</p>
 <p>Create a table summarizing the roots and timing from both parts a and b. What are your thoughts?</p>
@@ -743,17 +766,17 @@ Create a function that takes as input a starting point for Newtons method and re
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>
 <p>Gradient descent, like Newton’s method, has “hyperparameters” that are determined outside the algorithm and there are no set rules for determing what settings to use. For gradient descent, you need to set a start value, a step size and tolerance.</p>
-<div id="part-a.-1" class="section level3">
+<div id="part-a.-2" class="section level3">
 <h3>Part a.</h3>
 <p>Given a simple linear regression problem 2 above, create a function that accepts as input an initial guess for both <span class="math inline">\(\beta\)</span>’s and returns optimized values.</p>
 </div>
-<div id="part-b.-1" class="section level3">
+<div id="part-b.-2" class="section level3">
 <h3>Part b.</h3>
 <p>What is your stopping rule? What if you were to change the stopping rule to include our knowledge of the true value? Is this a good way to run this algorithm? What is a potential problem? What is the best guess at an initial value?</p>
 </div>
 <div id="part-c." class="section level3">
 <h3>Part c.</h3>
-<p>Using a step size of <span class="math inline">\(1e^{-7}\)</span> and tolerance of <span class="math inline">\(1e^{-9}\)</span>, try 1000 different combinations of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> across the range of possible <span class="math inline">\(\beta\)</span>’s +/-1 from true. In my try at this, I found starting close to true took 1.1M iterations, so set a stopping rule for 5M and only keep a rolling 1000 iterations for both <span class="math inline">\(\beta\)</span>’s. Hint, you can create a grid and use an apply function.</p>
+<p>Using a step size of <span class="math inline">\(1e^{-7}\)</span> and tolerance of <span class="math inline">\(1e^{-9}\)</span>, try 1000 different combinations of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> across the range of possible <span class="math inline">\(\beta\)</span>’s +/-1 from true. In my try at this, I found starting close to true took 1.1M iterations, so set a stopping rule for 5M. Hint, you can create a grid and use an apply function.</p>
 </div>
 <div id="part-d." class="section level3">
 <h3>Part d. </h3>
@@ -801,20 +824,17 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
  [1] Rcpp_1.0.7       whisker_0.4      knitr_1.36       magrittr_2.0.1  
- [5] R6_2.5.1         rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0     
- [9] highr_0.9        stringr_1.4.0    tools_4.0.3      xfun_0.26       
-[13] utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2 
-[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28   
-[21] tibble_3.1.5     lifecycle_1.0.1  crayon_1.4.1     later_1.3.0     
-[25] sass_0.4.0       vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0        
-[29] glue_1.4.2       evaluate_0.14    rmarkdown_2.11   stringi_1.7.5   
-[33] bslib_0.3.1      compiler_4.0.3   pillar_1.6.3     jsonlite_1.7.2  
-[37] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+ [5] workflowr_1.6.2  R6_2.5.1         rlang_0.4.11     fastmap_1.1.0   
+ [9] fansi_0.5.0      highr_0.9        stringr_1.4.0    tools_4.0.3     
+[13] xfun_0.26        utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4 
+[17] htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1      
+[21] digest_0.6.28    tibble_3.1.5     lifecycle_1.0.1  crayon_1.4.1    
+[25] later_1.3.0      sass_0.4.0       vctrs_0.3.8      promises_1.2.0.1
+[29] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
+[33] stringi_1.7.5    bslib_0.3.1      compiler_4.0.3   pillar_1.6.3    
+[37] jsonlite_1.7.2   httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 
