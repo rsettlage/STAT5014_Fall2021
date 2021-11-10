@@ -1,0 +1,234 @@
+---
+title: 'Dashboards, reports and automation'
+author: "Robert Settlage"
+date: "2021-11-09"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
+---
+
+## Today's Agenda
+
+- Three objectives today
+    + Automation
+    + Reports
+    + Dashboards: Flexdashboards and Shiny
+
+## Automation
+
+First, what do we mean by automation?  Push a button and good things happen, or do we want it to be more hands off?
+
+A concrete example: after closing bell, you want to pull the daily open/close for a group of stocks making up your portfolio.  From the data, you want to create a nice summary table.
+
+## Ways to automate a repetitive task:
+
+    + cron (Windows Task Scheduler, Automator/Apple Script)  
+    + HPC scheduler (Slurm, PBS/Torque, etc)  
+    + GitHub !!
+    
+##  GitHub as automation platform (hijacking CI/CD)
+
+CI/CD pipelines are a method of both development and delivery of software based solutions in a continuous manner.
+
+"CI, short for Continuous Integration, is a product advancement practice in which all designers consolidate code changes in a focal storehouse on various occasions a day. CD represents Continuous Delivery, which over Continuous Integration includes the act of mechanizing the whole programming discharge process."
+
+    + Improved deployment frequency  
+    + Faster time to market  
+    + Lower failure rate of new releases  
+    + Shortened lead time between fixes  
+    + Faster mean time to recovery (in the event of a new release crashing or otherwise disabling the current system)  
+
+
+![CI/CD](https://miro.medium.com/max/4800/1*7k5Z3-gJaqrY7YFxQx509g.png)
+
+<https://nanduribalajee.medium.com/what-is-ci-cd-pipeline-e2f25db99bbe>
+
+
+GitHub has CI/CD pipelines built in in the form of actions that we can take advantage of.
+
+![DevOps](https://cd.foundation/wp-content/uploads/sites/78/2020/09/devops.png)
+
+## CI/CD parts
+
+
+The functional parts of CI/CD pipelines consist of 3 key concepts: actions, tests, and 
+
+
+    + Using version control for all production artifacts  
+    + Monitoring system and application health  
+
+## Create a skeleton CI/CD pipeline in GitHub
+
+1. Create new repo  
+2. Create file R/test.R (below) and file data/.placeholder  
+3. Go to Actions, New Workflow, R package  
+4. Change to  below: 
+
+```
+name: R
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: "0/5 * * * *"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        r-version: ['4.1.1']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
+        with:
+          r-version: ${{ matrix.r-version }}
+      - name: Generate data
+        run: |
+          source("R/test.R")
+        shell: Rscript {0} 
+      - name: Commit files
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit
+```
+
+Note, this is written in YAML.  Proper indenting is strictly enforced and should be using two spaces per indent.  NOT tabs.  ":("
+
+test.R:
+```
+test <- rnorm(5)
+filename <- gsub(" ","_",gsub(':|- ', '_', Sys.time()),fixed=TRUE)
+saveRDS(test, paste0("data/data-",filename,".RDS"))
+```
+
+## Doing actions on a schedule:
+
+In the file .github/workflow/r.yml, you may have noticed:
+
+```
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: "0/5 * * * *"
+```
+
+This means, not only run the workflow on push/pull requests, but also on a schedule.  The above will run approximately every five minutes every day.
+
+## Rendering Reports
+
+Ok, so now we can generate random numbers at will (on push/pull), can we add to that?  What if we wanted to create a report that is rendered all nice and pretty and the report changes based on some input?
+
+First, rendering via a script.  As a for instance, let's suppose we want to render the following Rmd, random.Rmd (I changed the ticks to render better, add the 3rd if you copy/paste):
+
+```
+---
+title: "Draw Report"
+author: "Robert Settlage"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+
+``{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+library(knitr)
+``
+
+``{r get_numbers}
+test <- rnorm(5)
+``
+
+``{r print_pretty}
+kable(test,caption="5 random numbers")
+``
+```
+
+As it turns out, we can render it via a command line call like so:
+
+```
+Rscript -e "library(rmarkdown); rmarkdown::render(
+    input= "R/random.Rmd",
+    output_format = 'pdf_document,
+    output_file   = 'random_draw.pdf',
+    output_dir    = 'data/'))"
+```
+
+## Passing in parameters
+
+Add to the YAML header:
+
+```
+params:
+  use_seed: FALSE
+  this_seed: 12345
+```
+
+Inside the Rmd, you can reference the parameters like so:
+
+```
+``{r set_params}
+if(params$use_seed=="TRUE") then {
+  set.seed(params$this_seed)
+}
+``
+```
+
+And the render call will change to include the params with desired settings:
+
+```
+Rscript -e "library(rmarkdown); rmarkdown::render(
+    input= "R/random.Rmd",
+    output_format = 'pdf_document,
+    output_file   = 'random_draw.pdf',
+    output_dir    = 'data/'),
+    params=list(use_seed="TRUE",this_seed=54321))"
+```
+
+## Dashboards
+
+Collections of visuals to monitor or display a process are termed "Dashboards".
+
+Dashboards are found in many fields in our daily lives:
+
+1.  CDC - Center for Disease Control, all over on thier website  
+2.  Stock trading platforms  
+3.  The front of your car  
+4.  Casinos  
+5.  Airline control towers  
+
+
+## Examples
+
+<http://rmarkdown.rstudio.com/flexdashboard/examples.html>  
+<https://blog.codecentric.de/en/2017/11/explore-predictive-maintenance-flexdashboard/>  
+<https://i1.wp.com/datascienceplus.com/wp-content/uploads/2017/10/2017-10-30.png?ssl=1>  
+<https://www.r-bloggers.com/playing-with-r-shiny-dashboard-and-google-analytics-data/>  
+<https://www.r-bloggers.com/google-analytics-dashboards-with-r-shiny/>  
+
+## Interaction
+
+Static dashboards are nice, interactive are better, REACTIVE are best.
+
+1.  Static - load, munge, analyze, plot  
+2.  Interactive - user can influence and explore data  
+3.  Reactive - new data flows into the dashboard updates visuals accordingly
+
+## Shiny
+
+<https://shiny.rstudio.com/tutorial/>  
+<https://www.r-bloggers.com/making-a-shiny-dashboard-using-highcharter-analyzing-inflation-rates/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed:+RBloggers+(R+bloggers)>  
+<http://rmarkdown.rstudio.com/flexdashboard/shiny.html>  
