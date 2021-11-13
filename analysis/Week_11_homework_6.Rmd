@@ -1,0 +1,290 @@
+---
+title: "Homework 6"
+subtitle: "Due: Wednesday, Dec 1, 2021"
+author: "Robert Settlage"
+date: "2021-11-12"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+header-includes: \setlength\parindent{24pt} \usepackage{MnSymbol} \usepackage{mathrsfs}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For each assignment, turn in by the due date/time.  Late assignments must be  arranged prior to submission.  In every case, assignments are to be typed neatly using proper English in Markdown.
+
+This week we are going to work on automating report generation.  This is super useful when you have a repetitive task given new and fairly regular data.  We are going to use GitHub as our tool for automating. 
+
+## PART A: GitHub repo setup
+
+### Problem 1 -- create new GitHub repo
+
+Create a new repo and invite me.  Go ahead and add a REAME with some sort of short description and a LICENSE.  For help in choosing a license, go to <https://choosealicense.com/> .
+
+### Problem 2 -- create structure of repo and some test code
+
+Now that we have the GitHub repo, let's add some structure to it.  First, let's add the following files and directories, from the base directory in each case:
+
+```
+/R/.placeholder
+/data/.placeholder
+/reports/.placeholder
+```
+
+You can simply do `add file -> new file` from the GitHub menu.  If you need to add something to the new file, I just typed "just getting the folders setup".
+
+In the main folder of the repo, add a file called `DESCRIPTION` (note the all caps) with the following content customized for you as the author:
+
+```
+Package: HijackGitHub
+Title: Running R Scripts on a Schedule with GitHub Actions
+Version: 0.0.1
+Authors@R: 
+    person(given = "Robert",
+           family = "Settlage",
+           role = c("aut", "cre"),
+           email = "rsettlag@vt.edu")
+Description: This repo will render R reports on a schedule.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports:
+  remotes,
+  sessioninfo,
+  tinytex,
+  rmarkdown,
+  dplyr,
+  tidyquants,
+  knitr
+```
+
+In the R folder, add the following as an R file called `test.R`
+
+```
+test <- rnorm(5)
+filename <- gsub(" ","_",gsub(':|- ', '_', Sys.time()),fixed=TRUE)
+saveRDS(test, paste0("data/data-",filename,".RDS"))
+```
+
+
+### Problem 3  -- setup GitHub actions
+
+We are at first, simply going to add an action to perform when we push a file.  Click on actions.  Choose the R package "Set up this workflow".  Call the file `r-push.yml` and replace the code in the editor with the following:
+
+```
+name: R-push-pull
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        r-version: ['4.1.1']
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@f57f1301a053485946083d7a45022b278929a78a
+        with:
+          r-version: ${{ matrix.r-version }}
+      - name: Install pandoc
+        run: brew install pandoc
+      - name: Query dependencies
+        run: |
+          install.packages(c('remotes','sessioninfo'))
+          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+      - name: Cache R packages
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+      - name: Install dependencies
+        run: |
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+      - name: Install tinytex
+        run: |
+          tinytex::install_tinytex()
+        shell: Rscript {0}
+      - name: Generate data
+        run: |
+          source("R/test.R")
+        shell: Rscript {0} 
+      - name: Commit files
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -am "add data"
+          git push
+
+```
+
+The hit the start commit button and finish the commit by hitting the commit button.
+
+If you click back on the actions button, should should see there is 1 workflow run queued up or running.  With the install.packages in the above, this will take a little time.  The first time I ran it, it took 15 min.  After that it was closer to 2 min.  Note that we are using free resources, so shouldn't be too upset if/when it takes 15 min.  When the workflow run has completed, you should find a new RDS file in the data folder.  Note, while you have a run in the queue, if you do a push/pull/commit, the current workflow run will fail.  
+
+Why?  What operating system do you think this is running on?  How would you change it and what are some examples of others?
+
+
+### Problem 4
+
+At this point, we should have a functional GitHub repo that does little more than pull `rnorm(5)` and push this to a file on a push/pull/commit.  Let's add some more interesting functionality.  Create a file called `stock_summary.Rmd` in the R subfolder with the following code.  NOTE: you need to add the 3rd tick to each R code chunk line to make this a functional Rmd file.  I had to remove it to get it to render as I wanted in this document.
+
+```{r eval=F}
+---
+title: "Stock plotter"
+author: "Student fun"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+params:
+  symbols: AAPL
+  show_code: yes
+---
+
+``{r setup, include=FALSE}
+knitr::opts_chunk$set(
+    echo    = as.logical(params$show_code),
+    message = FALSE, 
+    warning = FALSE
+)
+``
+
+``{r}
+library(tidyquant)
+library(dplyr)
+library(knitr)
+``
+
+This report contains market data for `r params$symbols`.  To make for something to plot, I suggest you pull 7 days worth of data.
+
+``{r}
+# Get data
+stock_data_tbl <- tq_get(
+        x    = params$symbols,
+        from = today()-7, 
+        to   = today()
+    ) %>%
+    select(symbol, date, adjusted)
+
+kable(stock_data_tbl,caption="Last 7 days of market close")
+``
+
+``{r}
+# Create plot with gain/loss
+## you to do
+``
+
+``{r}
+# save data 
+# do you want to have a single running RDS file, or a file for every time this runs
+# up to you to decide
+``
+```
+
+When you commit the file, check the actions tab, is your automation running?
+
+### Problem 5 -- Create a script to render your Markdown doc
+
+Create a file in the base level directory called `render.R`, like so:
+
+```
+library(rmarkdown)
+output_file <- gsub(" ","_",gsub(':|- ', '_', Sys.time()),fixed=TRUE)
+output_file <- paste0("data/report-",output_file,"pdf")
+rmarkdown::render(
+    input         = "R/stock_summary.Rmd",
+    output_format = "pdf_document",
+    output_file   = output_file,
+    output_dir    = "reports/",
+    params        = list(
+        symbols        = 'AAPL',
+        show_code      = FALSE
+    )
+)
+```
+
+What does this line do?  
+```{r eval=F}
+output_file <- gsub(" ","_",gsub(':|- ', '_', Sys.time()),fixed=TRUE)
+```
+Is there a more compact way to do this?
+
+The above will create a plot for a single stock, what if the scenario was that you have 5 stock portfolios with different strategies and wanted to track each.  How could you do this easily?  HINT: params.
+
+We are now ready to test this out.
+
+### Problem 6 -- testing
+
+Edit the workflow yml file changing the following lines:
+
+```
+      - name: Generate data
+        run: |
+          source("R/test.R")
+        shell: Rscript {0} 
+```
+becomes
+
+```
+      - name: Generate Report
+        run: Rscript render.R
+```
+
+Commit and watch the actions to see it complete successfully.  For me, it currently takes about 2 min to run.
+
+### Problem 7 -- Create a script to render your Markdown doc on a schedule
+
+Now let's create an action that will be performed on a schedule.  Create a new file in the folder `.github/workflows` called `r-schedule.yml`.
+
+You can copy/paste from the `r-push.yml` file and make two changes:
+
+1. change the name to `R-schedule` by changing the first line:
+
+```
+name: R-push-pull
+```
+
+2. change the actions by changing:
+
+```
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+```
+
+to 
+
+```
+on:
+  schedule:
+    - cron: "5 17 * * 1,2,3,4,5"
+```
+
+Hover your mouse over the text, what is the schedule this code sets up?  Head over to the Actions tab, what do you see?
+
+
+## PART B: Dashboard
+
+### Problem 8 -- Flexdashboard
+
+Create a dashboard (could be shiny or Flexdashboard) that allows you to choose different investment amounts and plots both your portfolio worth and the stock price by day, two separate plots.  The data should be taking from the historical values you have stored in the GitHub repo.  An easy way to do this is have the dashboard code start in the repo directory stored on your local computer.
+
+How can you make this more interesting?
+
+Save the dashboard to the automated repo as the final submission.
+
