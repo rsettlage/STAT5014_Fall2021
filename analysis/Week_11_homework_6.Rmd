@@ -55,7 +55,7 @@ Imports:
   tinytex,
   rmarkdown,
   dplyr,
-  tidyquants,
+  tidyquant,
   knitr
 ```
 
