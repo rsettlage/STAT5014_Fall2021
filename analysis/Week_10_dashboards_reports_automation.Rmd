@@ -213,7 +213,7 @@ Dashboards are found in many fields in our daily lives:
 
 ## Examples
 
-<http://rmarkdown.rstudio.com/flexdashboard/examples.html>  
+<https://rstudio.github.io/flexdashboard/articles/examples.html>  
 <https://blog.codecentric.de/en/2017/11/explore-predictive-maintenance-flexdashboard/>  
 <https://i1.wp.com/datascienceplus.com/wp-content/uploads/2017/10/2017-10-30.png?ssl=1>  
 <https://www.r-bloggers.com/playing-with-r-shiny-dashboard-and-google-analytics-data/>  

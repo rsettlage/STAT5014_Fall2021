@@ -29,6 +29,8 @@ navbar:
         href: Week_8_apply_family.html
       - text: "Week 9"
         href: Week_9_going_parallel.html
+      - text: "Week 10"
+        href: Week_10_dashboards_reports_automation.html
 
   - text: Homework
     menu:
