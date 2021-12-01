@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Robert Settlage" />
+
+<meta name="date" content="2021-11-09" />
+
+<title>Another firehose introduction to … AI/ML</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">STAT5014 Fall2021 website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="schedule.html">Schedule</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Lectures
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Week_1_Introductions_Reproducible_Research_R.html">Week 1</a>
+    </li>
+    <li>
+      <a href="Week_2_Data_structures_Reproducible_research_Git.html">Week 2</a>
+    </li>
+    <li>
+      <a href="Week_3_Base_graphics_Mulitpanel_plots_GGplot2.html">Week 3</a>
+    </li>
+    <li>
+      <a href="Week_4_formula_interface_multipanel_ggplot2_plots.html">Week 4</a>
+    </li>
+    <li>
+      <a href="Week_5_wrangling_munging_tidying.html">Week 5</a>
+    </li>
+    <li>
+      <a href="Week_6_R_functions_logic_good_programming_practices.html">Week 6</a>
+    </li>
+    <li>
+      <a href="Week_7_matrix_vector_math.html">Week 7</a>
+    </li>
+    <li>
+      <a href="Week_8_apply_family.html">Week 8</a>
+    </li>
+    <li>
+      <a href="Week_9_going_parallel.html">Week 9</a>
+    </li>
+    <li>
+      <a href="Week_10_dashboards_reports_automation.html">Week 10</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Homework
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="Week_1_homework_1.html">Homework 1</a>
+    </li>
+    <li>
+      <a href="Week_2_homework_2.html">Homework 2</a>
+    </li>
+    <li>
+      <a href="Week_4_homework_3.html">Homework 3</a>
+    </li>
+    <li>
+      <a href="Week_6_homework_4.html">Homework 4</a>
+    </li>
+    <li>
+      <a href="Week_9_homework_5.html">Homework 5</a>
+    </li>
+    <li>
+      <a href="Week_11_homework_6.html">Homework 6</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Setup
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="submittinghomework.html">Submitting Homework</a>
+    </li>
+    <li>
+      <a href="SampleHomework.html">Sample Homework</a>
+    </li>
+    <li>
+      <a href="gitconf.html">Git Config</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/rsettlage/STAT5014_Fall2021">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Another firehose introduction to … AI/ML</h1>
+<h4 class="author">Robert Settlage</h4>
+<h4 class="date">2021-11-09</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2021-12-01
+</p>
+<p>
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+</p>
+<p>
+<strong>Knit directory:</strong> <code>STAT5014_Fall2021_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
+</p>
+<p>
+This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
+  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210816code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210816)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210816code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210816)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree2c835ac9c0c2a8c28f76fbc49dfce95c381f21c9targetblank2c835aca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/2c835ac9c0c2a8c28f76fbc49dfce95c381f21c9" target="_blank">2c835ac</a> </a>
+</p>
+</div>
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrsettlageSTAT5104Fall2021tree2c835ac9c0c2a8c28f76fbc49dfce95c381f21c9targetblank2c835aca" class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version <a href="https://github.com/rsettlage/STAT5104_Fall2021/tree/2c835ac9c0c2a8c28f76fbc49dfce95c381f21c9" target="_blank">2c835ac</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    .Rhistory
+    Ignored:    .Rproj.user/
+    Ignored:    analysis/Week_6_R_functions_logic_good_programming_practices_cache/
+
+Untracked files:
+    Untracked:  Untitled.Rmd
+    Untracked:  Untitled.html
+    Untracked:  Untitled.pdf
+    Untracked:  analysis/Week_11_AI_ML.Rmd
+    Untracked:  figure/NN_architectures.png
+    Untracked:  figure/NN_iris_1_hidden.png
+    Untracked:  figure/NN_latent_units.png
+    Untracked:  figure/biological_inspiration.png
+    Untracked:  figure/calculation_of_params.png
+    Untracked:  figure/calculation_of_params2.png
+    Untracked:  figure/gradient.png
+    Untracked:  figure/iris_hidden_layer.png
+    Untracked:  figure/logistic_regression.png
+    Untracked:  figure/multiclass_NN.png
+    Untracked:  figure/multiclass_NN_multilayer.png
+    Untracked:  figure/multiclass_regression.png
+    Untracked:  figure/neural_net_biological.png
+    Untracked:  figure/neural_network.png
+    Untracked:  figure/neural_network_layer_counting.png
+    Untracked:  figure/neuron.png
+    Untracked:  figure/parameter_estimation_NN_style.png
+    Untracked:  sensory_raw.RDS
+
+Unstaged changes:
+    Modified:   analysis/schedule.Rmd
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+</p>
+<hr>
+</div>
+</div>
+</div>
+<div id="todays-agenda" class="section level2">
+<h2>Today’s Agenda</h2>
+<ul>
+<li>Three objectives today
+<ul>
+<li>Automation and Dashboards poll</li>
+<li>AI/ML introduction via Keras</li>
+</ul></li>
+<li>Sorry in advance for all the unreferenced pictures, will work on adding references later. MOST were taken from Nvidia DLI materials. <a href="https://www.nvidia.com/en-us/training/" class="uri">https://www.nvidia.com/en-us/training/</a></li>
+</ul>
+</div>
+<div id="automation" class="section level2">
+<h2>Automation</h2>
+<p>What do you think? Was the automation discussion/homework useful? How might you use it?</p>
+<p>Ways to auotmate:</p>
+<pre><code>+ cron (Windows Task Scheduler, Automator/Apple Script)  
++ HPC scheduler (Slurm, PBS/Torque, etc)  
++ GitHub !!</code></pre>
+<p>We hijacked CI/CD pipelines which are generally thought of as a method of both development and delivery of software based solutions in a continuous manner.</p>
+<p>“CI, short for Continuous Integration, is a product advancement practice in which all designers consolidate code changes in a focal storehouse on various occasions a day. CD represents Continuous Delivery, which over Continuous Integration includes the act of mechanizing the whole programming discharge process.”</p>
+<pre><code>+ Improved deployment frequency  
++ Faster time to market  
++ Lower failure rate of new releases  
++ Shortened lead time between fixes  
++ Faster mean time to recovery (in the event of a new release crashing or otherwise disabling the current system)  </code></pre>
+<div class="figure">
+<img src="https://miro.medium.com/max/4800/1*7k5Z3-gJaqrY7YFxQx509g.png" alt="" />
+<p class="caption">CI/CD</p>
+</div>
+<p><a href="https://nanduribalajee.medium.com/what-is-ci-cd-pipeline-e2f25db99bbe" class="uri">https://nanduribalajee.medium.com/what-is-ci-cd-pipeline-e2f25db99bbe</a></p>
+</div>
+<div id="machine-learning-problems" class="section level2">
+<h2>Machine learning problems</h2>
+<ul>
+<li>supervised<br />
+</li>
+<li>unsupervised</li>
+</ul>
+<p>As examples:</p>
+<ul>
+<li>Iris dataset has labeled classes (species) and you want the machine to learn how to call the species from sepal and petal measurements<br />
+</li>
+<li>linear regression</li>
+</ul>
+<p><img src="./figure/supervised_learning.png" alt="supervised" /> <img src="./figure/market_segmentation" alt="unsupervised" /></p>
+<p>!!!! 3blue1brown</p>
+<p><a href="https://www.youtube.com/watch?v=aircAruvnKk&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;index=2&amp;t=199s" class="uri">https://www.youtube.com/watch?v=aircAruvnKk&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&amp;index=2&amp;t=199s</a></p>
+</div>
+<div id="neural-networks" class="section level2">
+<h2>Neural networks</h2>
+<ul>
+<li>single layer model<br />
+</li>
+<li>binary/multiple classification<br />
+</li>
+<li>NN’s, hidden layers, forward/backward propogation</li>
+</ul>
+<div id="our-goal-is-to-mimic-the-power-of-the-worlds-most-powerful-computer" class="section level3">
+<h3>Our goal is to mimic the power of the worlds most powerful computer</h3>
+<div class="figure">
+<img src="./figure/neuron.png" alt="" />
+<p class="caption">Neuron</p>
+</div>
+<div id="biological-inspiration-1" class="section level4">
+<h4>Biological inspiration 1</h4>
+<div class="figure">
+<img src="./figure/neural_net_biological.png" alt="" />
+<p class="caption">biological inspiration 1</p>
+</div>
+</div>
+<div id="biological-inspiration-2" class="section level4">
+<h4>Biological inspiration 2</h4>
+<div class="figure">
+<img src="./figure/biological_inspiration.png" alt="" />
+<p class="caption">biological inspiration 2</p>
+</div>
+</div>
+</div>
+<div id="layers-neurons-etc" class="section level3">
+<h3>Layers, neurons, etc</h3>
+<div class="figure">
+<img src="./figure/neural_network_layer_counting.png" alt="" />
+<p class="caption">layers</p>
+</div>
+</div>
+</div>
+<div id="logistic-regression" class="section level2">
+<h2>Logistic regression</h2>
+<div class="figure">
+<img src="./figure/logistic_regression.png" alt="" />
+<p class="caption">logistic regression</p>
+</div>
+<div id="logistic-regression-as-a-neural-network" class="section level3">
+<h3>Logistic regression as a neural network</h3>
+<div class="figure">
+<img src="./figure/neural_network.png" alt="" />
+<p class="caption">logistic regression NN</p>
+</div>
+</div>
+</div>
+<div id="multi-class-nn" class="section level2">
+<h2>Multi-class NN</h2>
+<div class="figure">
+<img src="./figure/multiclass_NN.png" alt="" />
+<p class="caption">multiclass NN</p>
+</div>
+</div>
+<div id="multi-layer-nn" class="section level2">
+<h2>Multi-layer NN</h2>
+<div class="figure">
+<img src="./figure/multiclass_NN_multilayer.png" alt="" />
+<p class="caption">multilayer NN</p>
+</div>
+<div id="multi-layer-nn-parameter-count" class="section level3">
+<h3>Multi-layer NN parameter count</h3>
+<div class="figure">
+<img src="./figure/calculation_of_params.png" alt="" />
+<p class="caption">multilayer parameter count</p>
+</div>
+</div>
+<div id="multi-layer-nn-forward-propogation" class="section level3">
+<h3>Multi-layer NN: forward propogation</h3>
+<div class="figure">
+<img src="./figure/calculation_of_params2.png" alt="" />
+<p class="caption">multilayer parameter count</p>
+</div>
+</div>
+<div id="nn-terms-hidden-layers" class="section level3">
+<h3>NN terms: hidden layers</h3>
+<div class="figure">
+<img src="./figure/NN_latent_units.png" alt="" />
+<p class="caption">NN hidden layers</p>
+</div>
+</div>
+</div>
+<div id="iris-data" class="section level2">
+<h2>Iris data</h2>
+<div class="figure">
+<img src="./figure/iris_hidden_layer.png" alt="" />
+<p class="caption">NN iris</p>
+</div>
+<div id="iris-nn-1-hidden-trained-weights" class="section level4">
+<h4>Iris NN – 1 hidden, trained weights</h4>
+<div class="figure">
+<img src="./figure/NN_iris_1_hidden.png" alt="" />
+<p class="caption">NN iris training</p>
+</div>
+</div>
+</div>
+<div id="nn-architectures" class="section level2">
+<h2>NN architectures</h2>
+<div class="figure">
+<img src="./figure/NN_architectures.png" alt="" />
+<p class="caption">NN architecture</p>
+</div>
+</div>
+<div id="nn-parameter-estimation-cost" class="section level2">
+<h2>NN parameter estimation – cost</h2>
+<div class="figure">
+<img src="./figure/parameter_estimation_NN_style.png" alt="" />
+<p class="caption">NN cost</p>
+</div>
+</div>
+<div id="gradient-back-propogation" class="section level2">
+<h2>Gradient – back propogation</h2>
+<div class="figure">
+<img src="./figure/gradient.png" alt="" />
+<p class="caption">NN back prop</p>
+</div>
+</div>
+<div id="aiml-workflow" class="section level2">
+<h2>AI/ML workflow</h2>
+<p>As Cassie Kozyrkov says, “Split your damn data”. Train/Validate/Test</p>
+<div class="figure">
+<img src="./figure/ML_workflow.png" alt="" />
+<p class="caption">ML workflow</p>
+</div>
+</div>
+<div id="ok-so-how-do-we-do-that-in-r" class="section level2">
+<h2>OK, so how do we do that in R</h2>
+<ul>
+<li>we COULD (and should 1x) code this up manually<br />
+</li>
+<li>Keras!</li>
+</ul>
+<p>Keras is a high level API to a TensorFlow backend. Think R + Python, and sometimes tricky to install.</p>
+<p><a href="https://tensorflow.rstudio.com/guide/keras/" class="uri">https://tensorflow.rstudio.com/guide/keras/</a><br />
+<a href="https://tensorflow.rstudio.com/installation/" class="uri">https://tensorflow.rstudio.com/installation/</a></p>
+<p>This worked for me last night:</p>
+<pre class="r"><code>install.packages(&quot;keras&quot;)
+devtools::install_github(&quot;rstudio/keras&quot;)
+install_keras()</code></pre>
+</div>
+<div id="text-classifiction" class="section level2">
+<h2>Text classifiction</h2>
+<p>Direct from the docs…</p>
+<p><a href="https://tensorflow.rstudio.com/tutorials/beginners/basic-ml/tutorial_basic_classification/" class="uri">https://tensorflow.rstudio.com/tutorials/beginners/basic-ml/tutorial_basic_classification/</a></p>
+<pre class="r"><code>#require(devtools)
+#install_github(&quot;rstudio/tensorflow&quot;)
+#install_github(&quot;rstudio/keras&quot;)
+
+library(keras)
+#install_keras()
+
+
+fashion_mnist &lt;- dataset_fashion_mnist()
+
+c(train_images, train_labels) %&lt;-% fashion_mnist$train
+c(test_images, test_labels) %&lt;-% fashion_mnist$test
+
+class_names = c(&#39;T-shirt/top&#39;,
+                &#39;Trouser&#39;,
+                &#39;Pullover&#39;,
+                &#39;Dress&#39;,
+                &#39;Coat&#39;, 
+                &#39;Sandal&#39;,
+                &#39;Shirt&#39;,
+                &#39;Sneaker&#39;,
+                &#39;Bag&#39;,
+                &#39;Ankle boot&#39;)
+dim(train_images)
+dim(test_images)
+
+# look at data
+library(tidyr)
+library(ggplot2)
+
+image_1 &lt;- as.data.frame(train_images[1, , ])
+colnames(image_1) &lt;- seq_len(ncol(image_1))
+image_1$y &lt;- seq_len(nrow(image_1))
+image_1 &lt;- gather(image_1, &quot;x&quot;, &quot;value&quot;, -y)
+image_1$x &lt;- as.integer(image_1$x)
+
+ggplot(image_1, aes(x = x, y = y, fill = value)) +
+  geom_tile() +
+  scale_fill_gradient(low = &quot;white&quot;, high = &quot;black&quot;, na.value = NA) +
+  scale_y_reverse() +
+  theme_minimal() +
+  theme(panel.grid = element_blank())   +
+  theme(aspect.ratio = 1) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;&quot;)
+##
+
+train_images &lt;- train_images / 255
+test_images &lt;- test_images / 255
+
+par(mfcol=c(5,5))
+par(mar=c(0, 0, 1.5, 0), xaxs=&#39;i&#39;, yaxs=&#39;i&#39;)
+for (i in 1:25) { 
+  img &lt;- train_images[i, , ]
+  img &lt;- t(apply(img, 2, rev)) 
+  image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;,
+        main = paste(class_names[train_labels[i] + 1]))
+}
+
+model &lt;- keras_model_sequential()
+model %&gt;%
+  layer_flatten(input_shape = c(28, 28)) %&gt;%
+  layer_dense(units = 128, activation = &#39;relu&#39;) %&gt;%
+  layer_dense(units = 10, activation = &#39;softmax&#39;)
+
+model %&gt;% compile(
+  optimizer = &#39;adam&#39;, 
+  loss = &#39;sparse_categorical_crossentropy&#39;,
+  metrics = c(&#39;accuracy&#39;)
+)
+
+model %&gt;% fit(train_images, train_labels, epochs = 5)
+
+score &lt;- model %&gt;% evaluate(test_images, test_labels)
+
+cat(&#39;Test loss:&#39;, score$loss, &quot;\n&quot;)
+cat(&#39;Test accuracy:&#39;, score$acc, &quot;\n&quot;)
+
+predictions &lt;- model %&gt;% predict(test_images)
+
+class_pred &lt;- model %&gt;% predict_classes(test_images)
+
+par(mfcol=c(5,5))
+par(mar=c(0, 0, 1.5, 0), xaxs=&#39;i&#39;, yaxs=&#39;i&#39;)
+for (i in 1:25) { 
+  img &lt;- test_images[i, , ]
+  img &lt;- t(apply(img, 2, rev)) 
+  # subtract 1 as labels go from 0 to 9
+  predicted_label &lt;- which.max(predictions[i, ]) - 1
+  true_label &lt;- test_labels[i]
+  if (predicted_label == true_label) {
+    color &lt;- &#39;#008800&#39; 
+  } else {
+    color &lt;- &#39;#bb0000&#39;
+  }
+  image(1:28, 1:28, img, col = gray((0:255)/255), xaxt = &#39;n&#39;, yaxt = &#39;n&#39;,
+        main = paste0(class_names[predicted_label + 1], &quot; (&quot;,
+                      class_names[true_label + 1], &quot;)&quot;),
+        col.main = color)
+}</code></pre>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.0.3 Patched (2020-11-08 r79409)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.6.2 
+ [5] R6_2.5.1         rlang_0.4.12     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.0.3      xfun_0.26        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
+[21] lifecycle_1.0.1  crayon_1.4.1     later_1.3.0      sass_0.4.0      
+[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.5.1      
+[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.5    bslib_0.3.1     
+[33] compiler_4.0.3   pillar_1.6.3     jsonlite_1.7.2   httpuv_1.6.3    
+[37] pkgconfig_2.0.3 </code></pre>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
