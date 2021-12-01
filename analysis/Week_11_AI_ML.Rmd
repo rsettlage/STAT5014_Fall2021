@@ -53,7 +53,7 @@ As examples:
 + linear regression
 
 ![supervised](./figure/supervised_learning.png)
-![unsupervised](./figure/market_segmentation)
+![unsupervised](./figure/market_segmentation.png)
 
 !!!! 3blue1brown  
 
