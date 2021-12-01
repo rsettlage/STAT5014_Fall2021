@@ -31,6 +31,8 @@ navbar:
         href: Week_9_going_parallel.html
       - text: "Week 10"
         href: Week_10_dashboards_reports_automation.html
+      - text: "Week 11"
+        href: Week_11_AI_ML.html
 
   - text: Homework
     menu:
