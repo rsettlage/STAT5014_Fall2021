@@ -41,12 +41,12 @@ Suggested schedule, you can speed ahead.
 |8	     | 20-Oct    | R's Apply family of functions
 |9	     | 27-Oct*   | Parallel computing in R, parXapply, foreach and dopar
 |        |           | **MODULE 3 -- Working with others in R**  
-|10	     |  3-Nov    | Interactive Visualizations and Dashboards  
-|11	     | 10-Nov*   | GUIs for working with collaborators  
+|10	     |  3-Nov    | Interactive Visualizations, FlexDashboards and Automation
+|11	     | 10-Nov*   | Automation, Shiny, and GUIs for working with collaborators  
 |        |           | **MODULE 4 -- Deep Learning and some Python**  
 |12	     | 17-Nov    | Deep Learning using Keras in R  
-|13	     | 24-Nov    | No class -- Thanksgiving  
-|- 	     |  1-Dec*   | Python and Jupyter Notebooks  
+|-	     | 24-Nov    | No class -- Thanksgiving  
+|13	     |  1-Dec*   | Python and Jupyter Notebooks  
 |14	     |  8-Dec*   | More Python (Final projects due)  
 |-       | ------    | Final -- none  
 
